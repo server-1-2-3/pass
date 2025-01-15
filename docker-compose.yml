@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: bitnami/postgresql:13
+    container_name: postgres
+    environment:
+      POSTGRESQL_USERNAME: dokploy
+      POSTGRESQL_PASSWORD: amukds4wi9001583845717ad2
+      POSTGRESQL_DATABASE: dokploy
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+  redis:
+    image: redis:6
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,15 @@
+import { Head, Html, Main, NextScript } from "next/document";
+
+export default function Document() {
+	return (
+		<Html lang="fa" className="font-sans">
+			<Head>
+				<link rel="icon" href="/icon.svg" />
+			</Head>
+			<body className="flex h-full flex-col font-sans">
+				<Main />
+				<NextScript />
+			</body>
+		</Html>
+	);
+}
