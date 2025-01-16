@@ -75,28 +75,25 @@ export const UpdateWebServer = () => {
 						<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
 						<span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
 					</span>
-					Update Server
+					بروزرسانی سرور
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
 					<AlertDialogTitle>
 						{updating
-							? "Server update in progress"
-							: "Are you absolutely sure?"}
+							? "بروزرسانی سرور در حال انجام است"
+							: "آیا مطمئن هستید؟"}
 					</AlertDialogTitle>
 					<AlertDialogDescription>
 						{updating ? (
 							<span className="flex items-center gap-1">
 								<Loader2 className="animate-spin" />
-								The server is being updated, please wait...
+								سرور در حال بروزرسانی است، لطفاً منتظر بمانید...
 							</span>
 						) : (
 							<>
-								This action cannot be undone. This will update the web server to
-								the new version. You will not be able to use the panel during
-								the update process. The page will be reloaded once the update is
-								finished.
+								این عمل قابل بازگشت نیست. این کار وب سرور را به نسخه جدید بروزرسانی خواهد کرد. در طول فرآیند بروزرسانی نمی‌توانید از پنل استفاده کنید. صفحه پس از اتمام بروزرسانی مجدداً بارگذاری خواهد شد.
 							</>
 						)}
 					</AlertDialogDescription>
@@ -104,10 +101,10 @@ export const UpdateWebServer = () => {
 				{!updating && (
 					<AlertDialogFooter>
 						<AlertDialogCancel onClick={() => setOpen(false)}>
-							Cancel
+							لغو
 						</AlertDialogCancel>
 						<AlertDialogAction onClick={handleConfirm}>
-							Confirm
+							تأیید
 						</AlertDialogAction>
 					</AlertDialogFooter>
 				)}

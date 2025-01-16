@@ -119,16 +119,14 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 				<DialogTrigger asChild>
 					<Button variant="outline">
 						<Settings2 className="size-4" />
-						Configure
+						پیکربندی
 					</Button>
 				</DialogTrigger>
 				<DialogContent className="max-h-screen overflow-y-auto sm:max-w-5xl w-full">
 					<DialogHeader>
-						<DialogTitle>Preview Deployment Settings</DialogTitle>
+						<DialogTitle>پیش‌نمایش تنظیمات دیپلویمنت</DialogTitle>
 						<DialogDescription>
-							Adjust the settings for preview deployments of this application,
-							including environment variables, build options, and deployment
-							rules.
+							تنظیمات مربوط به پیش‌نمایش دیپلویمنت این برنامه، شامل متغیرهای محیطی، گزینه‌های ساخت و قوانین دیپلویمنت را تنظیم کنید.
 						</DialogDescription>
 					</DialogHeader>
 					<div className="grid gap-4">
@@ -144,7 +142,7 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 										name="wildcardDomain"
 										render={({ field }) => (
 											<FormItem>
-												<FormLabel>Wildcard Domain</FormLabel>
+												<FormLabel>دامنه Wildcard</FormLabel>
 												<FormControl>
 													<Input placeholder="*.traefik.me" {...field} />
 												</FormControl>
@@ -157,7 +155,7 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 										name="previewPath"
 										render={({ field }) => (
 											<FormItem>
-												<FormLabel>Preview Path</FormLabel>
+												<FormLabel>مسیر پیش‌نمایش</FormLabel>
 												<FormControl>
 													<Input placeholder="/" {...field} />
 												</FormControl>
@@ -170,7 +168,7 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 										name="port"
 										render={({ field }) => (
 											<FormItem>
-												<FormLabel>Port</FormLabel>
+												<FormLabel>پورت</FormLabel>
 												<FormControl>
 													<NumberInput placeholder="3000" {...field} />
 												</FormControl>
@@ -183,11 +181,7 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 										name="previewLimit"
 										render={({ field }) => (
 											<FormItem>
-												<FormLabel>Preview Limit</FormLabel>
-												{/* <FormDescription>
-													Set the limit of preview deployments that can be
-													created for this app.
-												</FormDescription> */}
+												<FormLabel>محدودیت پیش‌نمایش</FormLabel>
 												<FormControl>
 													<NumberInput placeholder="3000" {...field} />
 												</FormControl>
@@ -203,7 +197,7 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 												<div className="space-y-0.5">
 													<FormLabel>HTTPS</FormLabel>
 													<FormDescription>
-														Automatically provision SSL Certificate.
+														به طور خودکار گواهی SSL صادر کنید.
 													</FormDescription>
 													<FormMessage />
 												</div>
@@ -222,19 +216,19 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 											name="previewCertificateType"
 											render={({ field }) => (
 												<FormItem>
-													<FormLabel>Certificate Provider</FormLabel>
+													<FormLabel>ارائه‌دهنده گواهی</FormLabel>
 													<Select
 														onValueChange={field.onChange}
 														defaultValue={field.value || ""}
 													>
 														<FormControl>
 															<SelectTrigger>
-																<SelectValue placeholder="Select a certificate provider" />
+																<SelectValue placeholder="انتخاب ارائه‌دهنده گواهی" />
 															</SelectTrigger>
 														</FormControl>
 
 														<SelectContent>
-															<SelectItem value="none">None</SelectItem>
+															<SelectItem value="none">هیچ‌کدام</SelectItem>
 															<SelectItem value={"letsencrypt"}>
 																Let's Encrypt
 															</SelectItem>
@@ -250,11 +244,10 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 									<div className="flex flex-row items-center justify-between rounded-lg border p-4 col-span-2">
 										<div className="space-y-0.5">
 											<FormLabel className="text-base">
-												Enable preview deployments
+												فعال‌سازی دیپلویمنت‌های پیش‌نمایش
 											</FormLabel>
 											<FormDescription>
-												Enable or disable preview deployments for this
-												application.
+												دیپلویمنت‌های پیش‌نمایش را برای این برنامه فعال یا غیرفعال کنید.
 											</FormDescription>
 										</div>
 										<Switch
@@ -266,7 +259,7 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 												})
 													.then(() => {
 														refetch();
-														toast.success("Preview deployments enabled");
+														toast.success("دیپلویمنت‌های پیش‌نمایش فعال شدند");
 													})
 													.catch((error) => {
 														toast.error(error.message);
@@ -284,23 +277,10 @@ export const ShowPreviewSettings = ({ applicationId }: Props) => {
 											<FormControl>
 												<Secrets
 													name="env"
-													title="Environment Settings"
-													description="You can add environment variables to your resource."
-													placeholder={[
-														"NODE_ENV=production",
-														"PORT=3000",
-													].join("\n")}
+													title="تنظیمات محیطی"
+													description="می‌توانید متغیرهای محیطی را به منبع خود اضافه کنید."
+													placeholder={["NODE_ENV=production", "PORT=3000"].join("\n")}
 												/>
-												{/* <CodeEditor
-													lineWrapping
-													language="properties"
-													wrapperClassName="h-[25rem] font-mono"
-													placeholder={`NODE_ENV=production
-PORT=3000
-
-                                                    `}
-													{...field}
-												/> */}
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -309,17 +289,17 @@ PORT=3000
 								{data?.buildType === "dockerfile" && (
 									<Secrets
 										name="buildArgs"
-										title="Build-time Variables"
+										title="متغیرهای زمان ساخت"
 										description={
 											<span>
-												Available only at build-time. See documentation&nbsp;
+												فقط در زمان ساخت در دسترس هستند. مستندات را ببینید&nbsp;
 												<a
 													className="text-primary"
 													href="https://docs.docker.com/build/guide/build-args/"
 													target="_blank"
 													rel="noopener noreferrer"
 												>
-													here
+													اینجا
 												</a>
 												.
 											</span>
@@ -337,19 +317,18 @@ PORT=3000
 								setIsOpen(false);
 							}}
 						>
-							Cancel
+							لغو
 						</Button>
 						<Button
 							isLoading={isLoading}
 							form="hook-form-delete-application"
 							type="submit"
 						>
-							Save
+							ذخیره
 						</Button>
 					</DialogFooter>
 				</DialogContent>
 			</Dialog>
-			{/* */}
 		</div>
 	);
 };

@@ -85,15 +85,15 @@ export const ShowDockerLogsStack = ({ appName, serverId }: Props) => {
 	return (
 		<Card className="bg-background">
 			<CardHeader>
-				<CardTitle className="text-xl">Logs</CardTitle>
+				<CardTitle className="text-xl">لاگ‌ها</CardTitle>
 				<CardDescription>
-					Watch the logs of the application in real time
+					مشاهده لاگ‌های برنامه به صورت زنده
 				</CardDescription>
 			</CardHeader>
 
 			<CardContent className="flex flex-col gap-4">
 				<div className="flex flex-row justify-between items-center gap-2">
-					<Label>Select a container to view logs</Label>
+					<Label>یک کانتینر برای مشاهده لاگ‌ها انتخاب کنید</Label>
 					<div className="flex flex-row gap-2 items-center">
 						<span className="text-sm text-muted-foreground">
 							{option === "native" ? "Native" : "Swarm"}
@@ -110,11 +110,11 @@ export const ShowDockerLogsStack = ({ appName, serverId }: Props) => {
 					<SelectTrigger>
 						{isLoading ? (
 							<div className="flex flex-row gap-2 items-center justify-center text-sm text-muted-foreground">
-								<span>Loading...</span>
+								<span>در حال بارگذاری...</span>
 								<Loader2 className="animate-spin size-4" />
 							</div>
 						) : (
-							<SelectValue placeholder="Select a container" />
+							<SelectValue placeholder="یک کانتینر انتخاب کنید" />
 						)}
 					</SelectTrigger>
 					<SelectContent>
@@ -150,7 +150,7 @@ export const ShowDockerLogsStack = ({ appName, serverId }: Props) => {
 								</>
 							)}
 
-							<SelectLabel>Containers ({containersLenght})</SelectLabel>
+							<SelectLabel>کانتینرها ({containersLenght})</SelectLabel>
 						</SelectGroup>
 					</SelectContent>
 				</Select>

@@ -63,23 +63,23 @@ export const ShowDockerLogsCompose = ({
 	return (
 		<Card className="bg-background">
 			<CardHeader>
-				<CardTitle className="text-xl">Logs</CardTitle>
+				<CardTitle className="text-xl">لاگ‌ها</CardTitle>
 				<CardDescription>
-					Watch the logs of the application in real time
+					مشاهده لاگ‌های برنامه به صورت زنده
 				</CardDescription>
 			</CardHeader>
 
 			<CardContent className="flex flex-col gap-4">
-				<Label>Select a container to view logs</Label>
+				<Label>یک کانتینر برای مشاهده لاگ‌ها انتخاب کنید</Label>
 				<Select onValueChange={setContainerId} value={containerId}>
 					<SelectTrigger>
 						{isLoading ? (
 							<div className="flex flex-row gap-2 items-center justify-center text-sm text-muted-foreground">
-								<span>Loading...</span>
+								<span>در حال بارگذاری...</span>
 								<Loader2 className="animate-spin size-4" />
 							</div>
 						) : (
-							<SelectValue placeholder="Select a container" />
+							<SelectValue placeholder="یک کانتینر انتخاب کنید" />
 						)}
 					</SelectTrigger>
 					<SelectContent>
@@ -95,7 +95,7 @@ export const ShowDockerLogsCompose = ({
 									</Badge>
 								</SelectItem>
 							))}
-							<SelectLabel>Containers ({data?.length})</SelectLabel>
+							<SelectLabel>کانتینرها ({data?.length})</SelectLabel>
 						</SelectGroup>
 					</SelectContent>
 				</Select>

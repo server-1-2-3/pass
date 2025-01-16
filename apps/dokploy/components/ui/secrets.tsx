@@ -52,19 +52,15 @@ export const Secrets = (props: Props) => {
 					control={form.control}
 					name={props.name}
 					render={({ field }) => (
-						<FormItem className="w-full">
-							<FormControl>
+						<FormItem style={{direction: "ltr"}} className="w-full">
+							<FormControl style={{direction: "ltr"}}>
 								<CodeEditor
-									style={
-										{
-											WebkitTextSecurity: isVisible ? "disc" : null,
-										} as CSSProperties
-									}
+									style={{ direction: "ltr" }}
 									language="properties"
 									disabled={isVisible}
 									lineWrapping
 									placeholder={props.placeholder}
-									className="h-96 font-mono"
+									className="h-96 font-mono ltr"
 									{...field}
 								/>
 							</FormControl>

@@ -102,6 +102,8 @@ export const EditTraefikEnv = ({ children, serverId }: Props) => {
 										<FormLabel>Env</FormLabel>
 										<FormControl>
 											<CodeEditor
+												style={{ direction: "ltr" }}
+
 												language="properties"
 												wrapperClassName="h-[35rem] font-mono"
 												placeholder={`TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_EMAIL=test@localhost.com

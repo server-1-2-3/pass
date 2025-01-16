@@ -26,18 +26,18 @@ export const DeleteVolume = ({ mountId, refetch }: Props) => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button variant="ghost" isLoading={isLoading}>
-					<TrashIcon className="size-4  text-muted-foreground " />
+					<TrashIcon className="size-4 text-muted-foreground" />
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This action cannot be undone. This will permanently delete the mount
+						این عمل قابل بازگشت نیست. این کار مونت را به طور دائمی حذف خواهد کرد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync({
@@ -45,14 +45,14 @@ export const DeleteVolume = ({ mountId, refetch }: Props) => {
 							})
 								.then(() => {
 									refetch();
-									toast.success("Mount deleted successfully");
+									toast.success("مونت با موفقیت حذف شد");
 								})
 								.catch(() => {
-									toast.error("Error deleting the mount");
+									toast.error("خطا در حذف مونت");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

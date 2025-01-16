@@ -100,7 +100,7 @@ export const Navbar = () => {
 					>
 						<Logo />
 						<span className="text-sm font-semibold text-primary max-sm:hidden">
-							سرویس  کلود یک، دو، سه
+							سرویس کلود یک، دو، سه
 						</span>
 					</Link>
 				</div>
@@ -131,7 +131,7 @@ export const Navbar = () => {
 						</DropdownMenuTrigger>
 						<DropdownMenuContent className="w-56" align="end">
 							<DropdownMenuLabel className="flex flex-col">
-								My Account
+								حساب من
 								<span className="text-xs font-normal text-muted-foreground">
 									{data?.email}
 								</span>
@@ -144,7 +144,7 @@ export const Navbar = () => {
 										router.push("/dashboard/projects");
 									}}
 								>
-									Projects
+									پروژه‌ها
 								</DropdownMenuItem>
 								<DropdownMenuItem
 									className="cursor-pointer"
@@ -152,7 +152,7 @@ export const Navbar = () => {
 										router.push("/dashboard/monitoring");
 									}}
 								>
-									Monitoring
+									مانیتورینگ
 								</DropdownMenuItem>
 								{(data?.rol === "admin" || user?.canAccessToTraefikFiles) && (
 									<DropdownMenuItem
@@ -183,7 +183,7 @@ export const Navbar = () => {
 										router.push("/dashboard/settings/server");
 									}}
 								>
-									Settings
+									تنظیمات
 								</DropdownMenuItem>
 							</DropdownMenuGroup>
 							{isCloud && data?.rol === "admin" && (
@@ -193,7 +193,7 @@ export const Navbar = () => {
 										router.push("/dashboard/settings/billing");
 									}}
 								>
-									Billing
+									صورتحساب
 								</DropdownMenuItem>
 							)}
 							<DropdownMenuSeparator />
@@ -205,7 +205,7 @@ export const Navbar = () => {
 									});
 								}}
 							>
-								Log out
+								خروج
 							</DropdownMenuItem>
 						</DropdownMenuContent>
 					</DropdownMenu>

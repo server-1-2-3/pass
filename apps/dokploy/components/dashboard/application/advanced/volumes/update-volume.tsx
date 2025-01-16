@@ -60,14 +60,14 @@ interface Props {
 	type: "bind" | "volume" | "file";
 	refetch: () => void;
 	serviceType:
-		| "application"
-		| "postgres"
-		| "redis"
-		| "mongo"
-		| "redis"
-		| "mysql"
-		| "mariadb"
-		| "compose";
+	| "application"
+	| "postgres"
+	| "redis"
+	| "mongo"
+	| "redis"
+	| "mysql"
+	| "mariadb"
+	| "compose";
 }
 
 export const UpdateVolume = ({
@@ -247,6 +247,8 @@ export const UpdateVolume = ({
 												<FormControl>
 													<FormControl>
 														<CodeEditor
+															style={{ direction: "ltr" }}
+
 															language="properties"
 															placeholder={`NODE_ENV=production
 PORT=3000

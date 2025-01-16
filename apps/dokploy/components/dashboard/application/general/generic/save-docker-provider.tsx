@@ -85,7 +85,7 @@ export const SaveDockerProvider = ({ applicationId }: Props) => {
 							name="dockerImage"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Docker Image</FormLabel>
+									<FormLabel>داکر ایمیج</FormLabel>
 									<FormControl>
 										<Input placeholder="node:16" {...field} />
 									</FormControl>
@@ -99,9 +99,9 @@ export const SaveDockerProvider = ({ applicationId }: Props) => {
 						name="registryURL"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Registry URL</FormLabel>
+								<FormLabel>آدرس رجیستری</FormLabel>
 								<FormControl>
-									<Input placeholder="Registry URL" {...field} />
+									<Input placeholder="آدرس رجیستری" {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -113,9 +113,9 @@ export const SaveDockerProvider = ({ applicationId }: Props) => {
 							name="username"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Username</FormLabel>
+									<FormLabel>نام کاربری</FormLabel>
 									<FormControl>
-										<Input placeholder="username" {...field} />
+										<Input placeholder="نام کاربری" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -128,9 +128,9 @@ export const SaveDockerProvider = ({ applicationId }: Props) => {
 							name="password"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Password</FormLabel>
+									<FormLabel>رمز عبور</FormLabel>
 									<FormControl>
-										<Input placeholder="Password" {...field} type="password" />
+										<Input placeholder="رمز عبور" {...field} type="password" />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -145,7 +145,7 @@ export const SaveDockerProvider = ({ applicationId }: Props) => {
 						className="w-fit"
 						isLoading={form.formState.isSubmitting}
 					>
-						Save{" "}
+						ذخیره
 					</Button>
 				</div>
 			</form>

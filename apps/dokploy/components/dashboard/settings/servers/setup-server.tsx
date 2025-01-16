@@ -180,6 +180,8 @@ export const SetupServer = ({ serverId }: Props) => {
 												2. When you are logged in run the following command
 												<div className="flex  relative flex-col gap-4 w-full mt-2">
 													<CodeEditor
+														style={{ direction: "ltr" }}
+
 														lineWrapping
 														language="properties"
 														value={`echo "${server?.sshKey?.publicKey}" >> ~/.ssh/authorized_keys`}

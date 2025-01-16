@@ -28,16 +28,15 @@ export const ShowVolumes = ({ mysqlId }: Props) => {
 		<Card className="bg-background">
 			<CardHeader className="flex flex-row justify-between flex-wrap gap-4">
 				<div>
-					<CardTitle className="text-xl">Volumes</CardTitle>
+					<CardTitle className="text-xl">حجم‌ها</CardTitle>
 					<CardDescription>
-						If you want to persist data in this mysql use the following config
-						to setup the volumes
+						اگر می‌خواهید داده‌ها را در این MySQL ذخیره کنید، از تنظیمات زیر برای راه‌اندازی حجم‌ها استفاده کنید.
 					</CardDescription>
 				</div>
 
 				{data && data?.mounts.length > 0 && (
 					<AddVolumes serviceId={mysqlId} refetch={refetch} serviceType="mysql">
-						Add Volume
+						افزودن حجم
 					</AddVolumes>
 				)}
 			</CardHeader>
@@ -46,21 +45,20 @@ export const ShowVolumes = ({ mysqlId }: Props) => {
 					<div className="flex w-full flex-col items-center justify-center gap-3 pt-10">
 						<Package className="size-8 text-muted-foreground" />
 						<span className="text-base text-muted-foreground">
-							No volumes/mounts configured
+							هیچ حجم/مونت‌ای تنظیم نشده است
 						</span>
 						<AddVolumes
 							serviceId={mysqlId}
 							refetch={refetch}
 							serviceType="mysql"
 						>
-							Add Volume
+							افزودن حجم
 						</AddVolumes>
 					</div>
 				) : (
 					<div className="flex flex-col pt-2 gap-4">
 						<AlertBlock type="info">
-							Please remember to click Redeploy after adding, editing, or
-							deleting a mount to apply the changes.
+							لطفاً پس از افزودن، ویرایش یا حذف یک مونت، روی دکمه Redeploy کلیک کنید تا تغییرات اعمال شوند.
 						</AlertBlock>
 						<div className="flex flex-col gap-6">
 							{data?.mounts.map((mount) => (
@@ -71,14 +69,14 @@ export const ShowVolumes = ({ mysqlId }: Props) => {
 									>
 										<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 flex-col gap-4 sm:gap-8">
 											<div className="flex flex-col gap-1">
-												<span className="font-medium">Mount Type</span>
+												<span className="font-medium">نوع مونت</span>
 												<span className="text-sm text-muted-foreground">
 													{mount.type.toUpperCase()}
 												</span>
 											</div>
 											{mount.type === "volume" && (
 												<div className="flex flex-col gap-1">
-													<span className="font-medium">Volume Name</span>
+													<span className="font-medium">نام حجم</span>
 													<span className="text-sm text-muted-foreground">
 														{mount.volumeName}
 													</span>
@@ -87,7 +85,7 @@ export const ShowVolumes = ({ mysqlId }: Props) => {
 
 											{mount.type === "file" && (
 												<div className="flex flex-col gap-1">
-													<span className="font-medium">Content</span>
+													<span className="font-medium">محتوا</span>
 													<span className="text-sm text-muted-foreground">
 														{mount.content}
 													</span>
@@ -95,14 +93,14 @@ export const ShowVolumes = ({ mysqlId }: Props) => {
 											)}
 											{mount.type === "bind" && (
 												<div className="flex flex-col gap-1">
-													<span className="font-medium">Host Path</span>
+													<span className="font-medium">مسیر میزبان</span>
 													<span className="text-sm text-muted-foreground">
 														{mount.hostPath}
 													</span>
 												</div>
 											)}
 											<div className="flex flex-col gap-1">
-												<span className="font-medium">Mount Path</span>
+												<span className="font-medium">مسیر مونت</span>
 												<span className="text-sm text-muted-foreground">
 													{mount.mountPath}
 												</span>

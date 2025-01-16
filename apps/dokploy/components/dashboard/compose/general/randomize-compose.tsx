@@ -114,33 +114,29 @@ export const RandomizeCompose = ({ composeId }: Props) => {
 			<DialogTrigger asChild onClick={() => randomizeCompose()}>
 				<Button className="max-lg:w-full" variant="outline">
 					<Dices className="h-4 w-4" />
-					Randomize Compose
+					تصادفی‌سازی Compose
 				</Button>
 			</DialogTrigger>
 			<DialogContent className="sm:max-w-6xl max-h-[50rem] overflow-y-auto">
 				<DialogHeader>
-					<DialogTitle>Randomize Compose (Experimental)</DialogTitle>
+					<DialogTitle>تصادفی‌سازی Compose (آزمایشی)</DialogTitle>
 					<DialogDescription>
-						Use this in case you want to deploy the same compose file and you
-						have conflicts with some property like volumes, networks, etc.
+						در صورتی که می‌خواهید فایل Compose یکسان را مستقر کنید و با برخی ویژگی‌ها مانند حجم‌ها، شبکه‌ها و غیره تداخل دارید، از این گزینه استفاده کنید.
 					</DialogDescription>
 				</DialogHeader>
 				<div className="text-sm text-muted-foreground flex flex-col gap-2">
 					<span>
-						This will randomize the compose file and will add a suffix to the
-						property to avoid conflicts
+						این گزینه فایل Compose را تصادفی‌سازی کرده و یک پسوند به ویژگی‌ها اضافه می‌کند تا از تداخل جلوگیری شود.
 					</span>
 					<ul className="list-disc list-inside">
-						<li>volumes</li>
-						<li>networks</li>
-						<li>services</li>
-						<li>configs</li>
-						<li>secrets</li>
+						<li>حجم‌ها</li>
+						<li>شبکه‌ها</li>
+						<li>سرویس‌ها</li>
+						<li>پیکربندی‌ها</li>
+						<li>رمزها</li>
 					</ul>
 					<AlertBlock type="info">
-						When you activate this option, we will include a env
-						`COMPOSE_PREFIX` variable to the compose file so you can use it in
-						your compose file.
+						وقتی این گزینه را فعال می‌کنید، یک متغیر محیطی `COMPOSE_PREFIX` به فایل Compose اضافه می‌شود تا بتوانید از آن در فایل Compose خود استفاده کنید.
 					</AlertBlock>
 				</div>
 				{isError && <AlertBlock type="error">{error?.message}</AlertBlock>}
@@ -166,10 +162,10 @@ export const RandomizeCompose = ({ composeId }: Props) => {
 									name="suffix"
 									render={({ field }) => (
 										<FormItem className="flex flex-col justify-center max-sm:items-center w-full">
-											<FormLabel>Suffix</FormLabel>
+											<FormLabel>پسوند</FormLabel>
 											<FormControl>
 												<Input
-													placeholder="Enter a suffix (Optional, example: prod)"
+													placeholder="یک پسوند وارد کنید (اختیاری، مثال: prod)"
 													{...field}
 												/>
 											</FormControl>
@@ -183,9 +179,9 @@ export const RandomizeCompose = ({ composeId }: Props) => {
 									render={({ field }) => (
 										<FormItem className="mt-4 flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
 											<div className="space-y-0.5">
-												<FormLabel>Apply Randomize</FormLabel>
+												<FormLabel>اعمال تصادفی‌سازی</FormLabel>
 												<FormDescription>
-													Apply randomize to the compose file.
+													تصادفی‌سازی را روی فایل Compose اعمال کنید.
 												</FormDescription>
 											</div>
 											<FormControl>
@@ -205,7 +201,7 @@ export const RandomizeCompose = ({ composeId }: Props) => {
 									type="submit"
 									className="lg:w-fit"
 								>
-									Save
+									ذخیره
 								</Button>
 								<Button
 									type="button"
@@ -215,12 +211,14 @@ export const RandomizeCompose = ({ composeId }: Props) => {
 									}}
 									className="lg:w-fit"
 								>
-									Random
+									تصادفی
 								</Button>
 							</div>
 						</div>
 						<pre>
 							<CodeEditor
+								style={{ direction: "ltr" }}
+
 								value={compose || ""}
 								language="yaml"
 								readOnly

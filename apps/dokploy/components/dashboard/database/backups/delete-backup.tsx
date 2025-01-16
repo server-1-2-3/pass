@@ -25,19 +25,18 @@ export const DeleteBackup = ({ backupId, refetch }: Props) => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button variant="ghost" isLoading={isLoading}>
-					<TrashIcon className="size-4  text-muted-foreground " />
+					<TrashIcon className="size-4 text-muted-foreground" />
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This action cannot be undone. This will permanently delete the
-						backup
+						این عمل قابل بازگشت نیست. این کار بک‌آپ را به طور دائمی حذف خواهد کرد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync({
@@ -46,14 +45,14 @@ export const DeleteBackup = ({ backupId, refetch }: Props) => {
 								.then(() => {
 									refetch();
 
-									toast.success("Backup deleted successfully");
+									toast.success("بک‌آپ با موفقیت حذف شد");
 								})
 								.catch(() => {
-									toast.error("Error deleting the backup");
+									toast.error("خطا در حذف بک‌آپ");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

@@ -46,6 +46,8 @@ export const ShowContainerConfig = ({ containerId, serverId }: Props) => {
 					<code>
 						<pre className="whitespace-pre-wrap break-words">
 							<CodeEditor
+								style={{ direction: "ltr" }}
+
 								language="json"
 								lineWrapping
 								lineNumbers={false}

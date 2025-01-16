@@ -31,16 +31,16 @@ export const DialogAction = ({
 			<AlertDialogContent>
 				<AlertDialogHeader>
 					<AlertDialogTitle>
-						{title ?? "Are you absolutely sure?"}
+						{title ?? "آیا مطمئن هستید؟"}
 					</AlertDialogTitle>
 					<AlertDialogDescription>
-						{description ?? "This action cannot be undone."}
+						{description ?? "این عمل قابل بازگشت نیست."}
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
 					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction disabled={disabled} onClick={onClick}>
-						تائیید
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

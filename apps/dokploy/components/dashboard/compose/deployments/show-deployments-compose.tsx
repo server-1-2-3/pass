@@ -37,22 +37,20 @@ export const ShowDeploymentsCompose = ({ composeId }: Props) => {
 		<Card className="bg-background">
 			<CardHeader className="flex flex-row items-center justify-between flex-wrap gap-2">
 				<div className="flex flex-col gap-2">
-					<CardTitle className="text-xl">Deployments</CardTitle>
+					<CardTitle className="text-xl">دیپلویمنت‌ها</CardTitle>
 					<CardDescription>
-						See all the 10 last deployments for this compose
+						مشاهده ۱۰ دیپلویمنت آخر برای این کامپوز
 					</CardDescription>
 				</div>
 				<CancelQueuesCompose composeId={composeId} />
-				{/* <CancelQueues applicationId={applicationId} /> */}
 			</CardHeader>
 			<CardContent className="flex flex-col gap-4">
 				<div className="flex flex-col gap-2 text-sm">
 					<span>
-						If you want to re-deploy this application use this URL in the config
-						of your git provider or docker
+						اگر می‌خواهید این برنامه را مجدداً دیپلویمنت دهید، از این URL در تنظیمات ارائه‌دهنده Git یا Docker خود استفاده کنید.
 					</span>
 					<div className="flex flex-row items-center gap-2 flex-wrap">
-						<span>Webhook URL: </span>
+						<span>وب‌هوک: </span>
 						<div className="flex flex-row items-center gap-2">
 							<span className="text-muted-foreground">
 								{`${url}/api/deploy/compose/${data?.refreshToken}`}
@@ -65,7 +63,7 @@ export const ShowDeploymentsCompose = ({ composeId }: Props) => {
 					<div className="flex w-full flex-col items-center justify-center gap-3 pt-10">
 						<RocketIcon className="size-8 text-muted-foreground" />
 						<span className="text-base text-muted-foreground">
-							No deployments found
+							هیچ دیپلویمنتی یافت نشد
 						</span>
 					</div>
 				) : (
@@ -103,7 +101,7 @@ export const ShowDeploymentsCompose = ({ composeId }: Props) => {
 											setActiveLog(deployment.logPath);
 										}}
 									>
-										View
+										مشاهده
 									</Button>
 								</div>
 							</div>

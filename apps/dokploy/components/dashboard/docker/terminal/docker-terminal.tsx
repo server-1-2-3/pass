@@ -59,7 +59,7 @@ export const DockerTerminal: React.FC<Props> = ({
 		<div className="flex flex-col gap-4">
 			<div className="flex flex-col gap-2">
 				<span>
-					Select way to connect to <b>{containerId}</b>
+					روش اتصال به <b>{containerId}</b> را انتخاب کنید
 				</span>
 				<Tabs value={activeWay} onValueChange={setActiveWay}>
 					<TabsList>

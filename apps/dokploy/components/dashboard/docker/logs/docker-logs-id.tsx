@@ -116,9 +116,8 @@ export const DockerLogsId: React.FC<Props> = ({
 			params.append("serverId", serverId);
 		}
 
-		const wsUrl = `${protocol}//${
-			window.location.host
-		}/docker-container-logs?${params.toString()}`;
+		const wsUrl = `${protocol}//${window.location.host
+			}/docker-container-logs?${params.toString()}`;
 		console.log("Connecting to WebSocket:", wsUrl);
 		const ws = new WebSocket(wsUrl);
 
@@ -242,13 +241,13 @@ export const DockerLogsId: React.FC<Props> = ({
 							<StatusLogsFilter
 								value={typeFilter}
 								setValue={setTypeFilter}
-								title="Log type"
+								title="نوع لاگ"
 								options={priorities}
 							/>
 
 							<Input
 								type="search"
-								placeholder="Search logs..."
+								placeholder="جستجو در لاگ‌ها..."
 								value={search}
 								onChange={handleSearch}
 								className="inline-flex h-9 text-sm placeholder-gray-400 w-full sm:w-auto"
@@ -263,13 +262,14 @@ export const DockerLogsId: React.FC<Props> = ({
 							disabled={filteredLogs.length === 0 || !data?.Name}
 						>
 							<DownloadIcon className="mr-2 h-4 w-4" />
-							Download logs
+							دانلود لاگ‌ها
 						</Button>
 					</div>
 					<div
 						ref={scrollRef}
 						onScroll={handleScroll}
 						className="h-[720px] overflow-y-auto space-y-0 border p-4 bg-[#fafafa] dark:bg-[#050506] rounded custom-logs-scrollbar"
+						style={{ direction: "ltr" }}
 					>
 						{filteredLogs.length > 0 ? (
 							filteredLogs.map((filteredLog: LogLine, index: number) => (
@@ -286,7 +286,7 @@ export const DockerLogsId: React.FC<Props> = ({
 							</div>
 						) : (
 							<div className="flex justify-center items-center h-full text-muted-foreground">
-								No logs found
+								هیچ لاگی یافت نشد
 							</div>
 						)}
 					</div>

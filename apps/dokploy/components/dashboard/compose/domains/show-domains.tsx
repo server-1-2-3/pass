@@ -32,9 +32,9 @@ export const ShowDomainsCompose = ({ composeId }: Props) => {
 			<Card className="bg-background">
 				<CardHeader className="flex flex-row items-center flex-wrap gap-4 justify-between">
 					<div className="flex flex-col gap-1">
-						<CardTitle className="text-xl">Domains</CardTitle>
+						<CardTitle className="text-xl">دامنه‌ها</CardTitle>
 						<CardDescription>
-							Domains are used to access to the application
+							دامنه‌ها برای دسترسی به برنامه استفاده می‌شوند
 						</CardDescription>
 					</div>
 
@@ -42,7 +42,7 @@ export const ShowDomainsCompose = ({ composeId }: Props) => {
 						{data && data?.length > 0 && (
 							<AddDomainCompose composeId={composeId}>
 								<Button>
-									<GlobeIcon className="size-4" /> Add Domain
+									<GlobeIcon className="size-4" /> افزودن دامنه
 								</Button>
 							</AddDomainCompose>
 						)}
@@ -53,13 +53,12 @@ export const ShowDomainsCompose = ({ composeId }: Props) => {
 						<div className="flex w-full flex-col items-center justify-center gap-3">
 							<GlobeIcon className="size-8 text-muted-foreground" />
 							<span className="text-base text-muted-foreground">
-								To access to the application it is required to set at least 1
-								domain
+								برای دسترسی به برنامه، حداقل یک دامنه باید تنظیم شود
 							</span>
 							<div className="flex flex-row gap-4 flex-wrap">
 								<AddDomainCompose composeId={composeId}>
 									<Button>
-										<GlobeIcon className="size-4" /> Add Domain
+										<GlobeIcon className="size-4" /> افزودن دامنه
 									</Button>
 								</AddDomainCompose>
 							</div>
@@ -78,7 +77,7 @@ export const ShowDomainsCompose = ({ composeId }: Props) => {
 										<Button variant="outline" disabled>
 											{item.serviceName}
 										</Button>
-										<Input disabled value={item.host} />
+										<Input dir="ltr" disabled value={item.host} />
 										<Button variant="outline" disabled>
 											{item.path}
 										</Button>

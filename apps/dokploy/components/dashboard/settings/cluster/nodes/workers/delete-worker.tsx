@@ -26,19 +26,18 @@ export const DeleteWorker = ({ nodeId }: Props) => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<DropdownMenuItem onSelect={(e) => e.preventDefault()}>
-					Delete
+					حذف
 				</DropdownMenuItem>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This action cannot be undone. This will permanently delete the
-						worker.
+						این عمل قابل بازگشت نیست. این کار کارگر (Worker) را به طور دائمی حذف خواهد کرد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync({
@@ -46,14 +45,14 @@ export const DeleteWorker = ({ nodeId }: Props) => {
 							})
 								.then(async () => {
 									utils.cluster.getNodes.invalidate();
-									toast.success("Worker deleted successfully");
+									toast.success("کارگر با موفقیت حذف شد");
 								})
 								.catch(() => {
-									toast.error("Error deleting Worker");
+									toast.error("خطا در حذف کارگر");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

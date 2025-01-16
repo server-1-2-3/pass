@@ -25,19 +25,18 @@ export const DeleteCertificate = ({ certificateId }: Props) => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button variant="ghost" isLoading={isLoading}>
-					<TrashIcon className="size-4  text-muted-foreground " />
+					<TrashIcon className="size-4 text-muted-foreground" />
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This action cannot be undone. This will permanently delete the
-						certificate.
+						این عمل قابل بازگشت نیست. این کار گواهی را به طور دائمی حذف خواهد کرد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync({
@@ -46,14 +45,14 @@ export const DeleteCertificate = ({ certificateId }: Props) => {
 								.then(async () => {
 									utils.certificates.all.invalidate();
 									utils.auth.get.invalidate();
-									toast.success("Certificate deleted successfully");
+									toast.success("گواهی با موفقیت حذف شد");
 								})
 								.catch(() => {
-									toast.error("Error deleting Certificate");
+									toast.error("خطا در حذف گواهی");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

@@ -85,21 +85,21 @@ export const DockerTerminalModal = ({ children, appName, serverId }: Props) => {
 				onEscapeKeyDown={(event) => event.preventDefault()}
 			>
 				<DialogHeader>
-					<DialogTitle>Docker Terminal</DialogTitle>
+					<DialogTitle>ترمینال Docker</DialogTitle>
 					<DialogDescription>
-						Easy way to access to docker container
+						راه آسان برای دسترسی به کانتینر Docker
 					</DialogDescription>
 				</DialogHeader>
-				<Label>Select a container to view logs</Label>
+				<Label>یک کانتینر برای مشاهده لاگ‌ها انتخاب کنید</Label>
 				<Select onValueChange={setContainerId} value={containerId}>
 					<SelectTrigger>
 						{isLoading ? (
 							<div className="flex flex-row gap-2 items-center justify-center text-sm text-muted-foreground">
-								<span>Loading...</span>
+								<span>در حال بارگذاری...</span>
 								<Loader2 className="animate-spin size-4" />
 							</div>
 						) : (
-							<SelectValue placeholder="Select a container" />
+							<SelectValue placeholder="یک کانتینر انتخاب کنید" />
 						)}
 					</SelectTrigger>
 					<SelectContent>
@@ -112,7 +112,7 @@ export const DockerTerminalModal = ({ children, appName, serverId }: Props) => {
 									{container.name} ({container.containerId}) {container.state}
 								</SelectItem>
 							))}
-							<SelectLabel>Containers ({data?.length})</SelectLabel>
+							<SelectLabel>کانتینرها ({data?.length})</SelectLabel>
 						</SelectGroup>
 					</SelectContent>
 				</Select>
@@ -125,17 +125,17 @@ export const DockerTerminalModal = ({ children, appName, serverId }: Props) => {
 					<DialogContent onEscapeKeyDown={(event) => event.preventDefault()}>
 						<DialogHeader>
 							<DialogTitle>
-								Are you sure you want to close the terminal?
+								آیا مطمئن هستید که می‌خواهید ترمینال را ببندید؟
 							</DialogTitle>
 							<DialogDescription>
-								By clicking the confirm button, the terminal will be closed.
+								با کلیک روی دکمه تأیید، ترمینال بسته خواهد شد.
 							</DialogDescription>
 						</DialogHeader>
 						<DialogFooter>
 							<Button variant="outline" onClick={handleCancel}>
-								Cancel
+								لغو
 							</Button>
-							<Button onClick={handleConfirm}>Confirm</Button>
+							<Button onClick={handleConfirm}>تأیید</Button>
 						</DialogFooter>
 					</DialogContent>
 				</Dialog>

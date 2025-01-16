@@ -21,27 +21,27 @@ export type TimeFilter = "all" | "1h" | "6h" | "24h" | "168h" | "720h";
 
 const timeRanges: Array<{ label: string; value: TimeFilter }> = [
 	{
-		label: "All time",
+		label: "همه زمان‌ها",
 		value: "all",
 	},
 	{
-		label: "Last hour",
+		label: "۱ ساعت گذشته",
 		value: "1h",
 	},
 	{
-		label: "Last 6 hours",
+		label: "۶ ساعت گذشته",
 		value: "6h",
 	},
 	{
-		label: "Last 24 hours",
+		label: "۲۴ ساعت گذشته",
 		value: "24h",
 	},
 	{
-		label: "Last 7 days",
+		label: "۷ روز گذشته",
 		value: "168h",
 	},
 	{
-		label: "Last 30 days",
+		label: "۳۰ روز گذشته",
 		value: "720h",
 	},
 ] as const;
@@ -59,11 +59,11 @@ export function SinceLogsFilter({
 	onValueChange,
 	showTimestamp,
 	onTimestampChange,
-	title = "Time range",
+	title = "بازه زمانی",
 }: SinceLogsFilterProps) {
 	const selectedLabel =
 		timeRanges.find((range) => range.value === value)?.label ??
-		"Select time range";
+		"انتخاب بازه زمانی";
 
 	return (
 		<Popover>
@@ -99,7 +99,7 @@ export function SinceLogsFilter({
 									>
 										<div
 											className={cn(
-												"mr-2 flex h-4 w-4 items-center rounded-sm border border-primary",
+												"ml-2 flex h-4 w-4 items-center rounded-sm border border-primary",
 												isSelected
 													? "bg-primary text-primary-foreground"
 													: "opacity-50 [&_svg]:invisible",
@@ -116,7 +116,7 @@ export function SinceLogsFilter({
 				</Command>
 				<Separator className="my-2" />
 				<div className="p-2 flex items-center justify-between">
-					<span className="text-sm">Show timestamps</span>
+					<span className="text-sm">نمایش زمان‌ها</span>
 					<Switch checked={showTimestamp} onCheckedChange={onTimestampChange} />
 				</div>
 			</PopoverContent>

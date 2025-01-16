@@ -84,6 +84,8 @@ export const CreateSSHKey = () => {
 											2. بعد از ورود کامند زیر را اجرا کنید
 											<div className="flex  relative flex-col gap-4 w-full mt-2">
 												<CodeEditor
+													style={{ direction: "ltr" }}
+
 													lineWrapping
 													language="properties"
 													value={`echo "${cloudSSHKey?.publicKey}" >> ~/.ssh/authorized_keys`}

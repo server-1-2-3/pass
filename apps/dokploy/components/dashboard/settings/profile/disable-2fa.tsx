@@ -20,31 +20,31 @@ export const Disable2FA = () => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button variant="destructive" isLoading={isLoading}>
-					Disable 2FA
+					غیرفعال‌سازی 2FA
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This action cannot be undone. This will permanently delete the 2FA
+						این عمل قابل بازگشت نیست. این کار 2FA را به طور دائمی غیرفعال خواهد کرد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync()
 								.then(() => {
 									utils.auth.get.invalidate();
-									toast.success("2FA Disabled");
+									toast.success("2FA غیرفعال شد");
 								})
 								.catch(() => {
-									toast.error("Error disabling 2FA");
+									toast.error("خطا در غیرفعال‌سازی 2FA");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

@@ -25,21 +25,21 @@ export const StartCompose = ({ composeId }: Props) => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button variant="secondary" isLoading={isLoading}>
-					Start
+					شروع
 					<CheckCircle2 className="size-4" />
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
 					<AlertDialogTitle>
-						Are you sure to start the compose?
+						آیا از شروع کامپوز مطمئن هستید؟
 					</AlertDialogTitle>
 					<AlertDialogDescription>
-						This will start the compose
+						این عمل کامپوز را شروع خواهد کرد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync({
@@ -49,14 +49,14 @@ export const StartCompose = ({ composeId }: Props) => {
 									await utils.compose.one.invalidate({
 										composeId,
 									});
-									toast.success("Compose started successfully");
+									toast.success("کامپوز با موفقیت شروع شد");
 								})
 								.catch(() => {
-									toast.error("Error starting the Compose");
+									toast.error("خطا در شروع کامپوز");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

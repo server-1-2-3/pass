@@ -120,7 +120,7 @@ export const AddDestination = () => {
 									<FormItem>
 										<FormLabel>اسم</FormLabel>
 										<FormControl>
-											<Input placeholder={"مثلا باکت Database"} {...field} />
+											<Input dir="ltr" placeholder={"my-bucket"} {...field} />
 										</FormControl>
 										<FormMessage />
 									</FormItem>
@@ -170,7 +170,7 @@ export const AddDestination = () => {
 									<FormItem>
 										<FormLabel>کلید آیدی</FormLabel>
 										<FormControl>
-											<Input placeholder={"xcas41dasde"} {...field} />
+											<Input dir="ltr" placeholder={"xcas41dasde"} {...field} />
 										</FormControl>
 										<FormMessage />
 									</FormItem>
@@ -186,7 +186,7 @@ export const AddDestination = () => {
 										<FormLabel>کلید سکرت</FormLabel>
 									</div>
 									<FormControl>
-										<Input placeholder={"asd123asdasw"} {...field} />
+										<Input dir="ltr" placeholder={"asd123asdasw"} {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -201,7 +201,7 @@ export const AddDestination = () => {
 										<FormLabel>باکت</FormLabel>
 									</div>
 									<FormControl>
-										<Input placeholder={"dokploy-bucket"} {...field} />
+										<Input dir="ltr" placeholder={"dokploy-bucket"} {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -216,7 +216,7 @@ export const AddDestination = () => {
 										<FormLabel>منطقه (Region)</FormLabel>
 									</div>
 									<FormControl>
-										<Input placeholder={"us-east-1"} {...field} />
+										<Input dir="ltr" placeholder={"us-east-1"} {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -230,6 +230,7 @@ export const AddDestination = () => {
 									<FormLabel>آدرس (EndPoint)</FormLabel>
 									<FormControl>
 										<Input
+											dir="ltr"
 											placeholder={"https://us.bucket.aws/s3"}
 											{...field}
 										/>

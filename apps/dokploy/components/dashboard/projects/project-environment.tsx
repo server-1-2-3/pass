@@ -78,7 +78,7 @@ export const ProjectEnvironment = ({ projectId, children }: Props) => {
 			.catch(() => {
 				toast.error("Error updating the env");
 			})
-			.finally(() => {});
+			.finally(() => { });
 	};
 
 	return (
@@ -124,9 +124,8 @@ export const ProjectEnvironment = ({ projectId, children }: Props) => {
 											<FormControl>
 												<CodeEditor
 													dir="ltr"
-													style={{
-														direction: "ltr !important"
-													}}
+													style={{ direction: "ltr" }}
+
 													lineWrapping
 													language="properties"
 													wrapperClassName="h-[35rem] font-mono"

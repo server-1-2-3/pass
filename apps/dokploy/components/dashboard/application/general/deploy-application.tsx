@@ -33,25 +33,25 @@ export const DeployApplication = ({ applicationId }: Props) => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button isLoading={data?.applicationStatus === "running"}>
-					Deploy
+					دیپلویمنت
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This will deploy the application
+						این عمل برنامه را دیپلویمنت خواهد داد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await deploy({
 								applicationId,
 							})
 								.then(async () => {
-									toast.success("Application deployed successfully");
+									toast.success("برنامه با موفقیت دیپلویمنت یافت");
 									await refetch();
 									router.push(
 										`/dashboard/project/${data?.projectId}/services/application/${applicationId}?tab=deployments`,
@@ -59,13 +59,13 @@ export const DeployApplication = ({ applicationId }: Props) => {
 								})
 
 								.catch(() => {
-									toast.error("Error deploying the Application");
+									toast.error("خطا در دیپلویمنت برنامه");
 								});
 
 							await refetch();
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

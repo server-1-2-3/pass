@@ -55,7 +55,7 @@ export const ShowEnvironment = ({ applicationId }: Props) => {
 			});
 	};
 
-    return (
+	return (
 		<Card className="bg-background px-6 pb-6">
 			<Form {...form}>
 				<form
@@ -64,24 +64,24 @@ export const ShowEnvironment = ({ applicationId }: Props) => {
 				>
 					<Secrets
 						name="env"
-						title="Environment Settings"
-						description="You can add environment variables to your resource."
+						title="تنظیمات محیطی"
+						description="می‌توانید متغیرهای محیطی را به منبع خود اضافه کنید."
 						placeholder={["NODE_ENV=production", "PORT=3000"].join("\n")}
 					/>
 					{data?.buildType === "dockerfile" && (
 						<Secrets
 							name="buildArgs"
-							title="Build-time Variables"
+							title="متغیرهای زمان ساخت"
 							description={
 								<span>
-									Available only at build-time. See documentation&nbsp;
+									فقط در زمان ساخت در دسترس هستند. مستندات را ببینید&nbsp;
 									<a
 										className="text-primary"
 										href="https://docs.docker.com/build/guide/build-args/"
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										here
+										اینجا
 									</a>
 									.
 								</span>
@@ -91,11 +91,11 @@ export const ShowEnvironment = ({ applicationId }: Props) => {
 					)}
 					<div className="flex flex-row justify-end">
 						<Button isLoading={isLoading} className="w-fit" type="submit">
-							Save
+							ذخیره
 						</Button>
 					</div>
 				</form>
 			</Form>
 		</Card>
-    );
+	);
 };

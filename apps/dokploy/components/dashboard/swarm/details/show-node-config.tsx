@@ -41,6 +41,8 @@ export const ShowNodeConfig = ({ nodeId, serverId }: Props) => {
 						<pre className="whitespace-pre-wrap break-words items-center justify-center">
 							{/* {JSON.stringify(data, null, 2)} */}
 							<CodeEditor
+								style={{ direction: "ltr" }}
+
 								language="json"
 								lineWrapping={false}
 								lineNumbers={false}

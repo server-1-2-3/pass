@@ -97,13 +97,13 @@ export const ShowEnvironmentCompose = ({ composeId }: Props) => {
 	}, [form.reset, data, form, isEnvVisible]);
 
 	return (
-		<div className="flex w-full flex-col gap-5 ">
+		<div className="flex w-full flex-col gap-5">
 			<Card className="bg-background">
 				<CardHeader className="flex flex-row w-full items-center justify-between">
 					<div>
-						<CardTitle className="text-xl">Environment Settings</CardTitle>
+						<CardTitle className="text-xl">تنظیمات محیطی</CardTitle>
 						<CardDescription>
-							You can add environment variables to your resource.
+							می‌توانید متغیرهای محیطی را به منبع خود اضافه کنید.
 						</CardDescription>
 					</div>
 
@@ -155,7 +155,7 @@ PORT=3000
 									className="w-fit"
 									type="submit"
 								>
-									Save
+									ذخیره
 								</Button>
 							</div>
 						</form>

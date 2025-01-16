@@ -87,7 +87,7 @@ const Service = (
 				<Breadcrumb>
 					<BreadcrumbItem>
 						<BreadcrumbLink as={Link} href="/dashboard/projects">
-							Projects
+							پروژه‌ها
 						</BreadcrumbLink>
 					</BreadcrumbItem>
 					<BreadcrumbItem>
@@ -126,7 +126,7 @@ const Service = (
 											: "destructive"
 								}
 							>
-								{data?.server?.name || "Dokploy Server"}
+								{data?.server?.name || "سرور Dokploy"}
 							</Badge>
 							{data?.server?.serverStatus === "inactive" && (
 								<TooltipProvider delayDuration={0}>
@@ -142,9 +142,7 @@ const Service = (
 											side="top"
 										>
 											<span>
-												You cannot, deploy this application because the server
-												is inactive, please upgrade your plan to add more
-												servers.
+												شما نمی‌توانید این برنامه را دیپلوی کنید زیرا سرور غیرفعال است، لطفاً برای افزودن سرورهای بیشتر، طرح خود را ارتقا دهید.
 											</span>
 										</TooltipContent>
 									</Tooltip>
@@ -172,16 +170,14 @@ const Service = (
 					<div className="max-w-3xl mx-auto flex flex-col items-center justify-center self-center gap-3">
 						<ServerOff className="size-10 text-muted-foreground self-center" />
 						<span className="text-center text-base text-muted-foreground">
-							This service is hosted on the server {data.server.name}, but this
-							server has been disabled because your current plan doesn't include
-							enough servers. Please purchase more servers to regain access to
-							this application.
+							این سرویس روی سرور {data.server.name} میزبانی می‌شود، اما این سرور غیرفعال شده است زیرا طرح فعلی شما شامل سرورهای کافی نیست. لطفاً برای دسترسی مجدد به این برنامه، سرورهای بیشتری خریداری کنید.
 						</span>
 						<span className="text-center text-base text-muted-foreground">
-							Go to{" "}
+							به{" "}
 							<Link href="/dashboard/settings/billing" className="text-primary">
-								Billing
-							</Link>
+								صورتحساب
+							</Link>{" "}
+							بروید.
 						</span>
 					</div>
 				</div>
@@ -207,17 +203,17 @@ const Service = (
 									: "",
 							)}
 						>
-							<TabsTrigger value="general">General</TabsTrigger>
+							<TabsTrigger value="general">عمومی</TabsTrigger>
 							{data?.composeType === "docker-compose" && (
-								<TabsTrigger value="environment">Environment</TabsTrigger>
+								<TabsTrigger value="environment">محیط</TabsTrigger>
 							)}
 							{!data?.serverId && (
-								<TabsTrigger value="monitoring">Monitoring</TabsTrigger>
+								<TabsTrigger value="monitoring">مانیتورینگ</TabsTrigger>
 							)}
-							<TabsTrigger value="logs">Logs</TabsTrigger>
-							<TabsTrigger value="deployments">Deployments</TabsTrigger>
-							<TabsTrigger value="domains">Domains</TabsTrigger>
-							<TabsTrigger value="advanced">Advanced</TabsTrigger>
+							<TabsTrigger value="logs">لاگ‌ها</TabsTrigger>
+							<TabsTrigger value="deployments">دیپلویمنت‌ها</TabsTrigger>
+							<TabsTrigger value="domains">دامنه‌ها</TabsTrigger>
+							<TabsTrigger value="advanced">پیشرفته</TabsTrigger>
 						</TabsList>
 						<div className="flex flex-row gap-2">
 							<UpdateCompose composeId={composeId} />

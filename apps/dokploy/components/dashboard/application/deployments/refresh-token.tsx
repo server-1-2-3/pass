@@ -27,14 +27,13 @@ export const RefreshToken = ({ applicationId }: Props) => {
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This action cannot be undone. This will change the refresh token and
-						other tokens will be invalidated.
+						این عمل قابل بازگشت نیست. این کار توکن رفرش را تغییر می‌دهد و سایر توکن‌ها نامعتبر خواهند شد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync({
@@ -44,14 +43,14 @@ export const RefreshToken = ({ applicationId }: Props) => {
 									utils.application.one.invalidate({
 										applicationId,
 									});
-									toast.success("Refresh updated");
+									toast.success("رفرش با موفقیت به‌روزرسانی شد");
 								})
 								.catch(() => {
-									toast.error("Error updating the refresh token");
+									toast.error("خطا در به‌روزرسانی توکن رفرش");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

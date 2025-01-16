@@ -30,7 +30,7 @@ export const ShowGeneralApplication = ({ applicationId }: Props) => {
 		<>
 			<Card className="bg-background">
 				<CardHeader>
-					<CardTitle className="text-xl">Deploy Settings</CardTitle>
+					<CardTitle className="text-xl">تنظیمات دیپلوی</CardTitle>
 				</CardHeader>
 				<CardContent className="flex flex-row gap-4 flex-wrap">
 					<DeployApplication applicationId={applicationId} />
@@ -50,8 +50,8 @@ export const ShowGeneralApplication = ({ applicationId }: Props) => {
 						serverId={data?.serverId || ""}
 					>
 						<Button variant="outline">
+							باز کردن ترمینال
 							<Terminal />
-							Open Terminal
 						</Button>
 					</DockerTerminalModal>
 					<div className="flex flex-row items-center gap-2 rounded-md px-4 py-2 border">
@@ -65,11 +65,11 @@ export const ShowGeneralApplication = ({ applicationId }: Props) => {
 									autoDeploy: enabled,
 								})
 									.then(async () => {
-										toast.success("Auto Deploy Updated");
+										toast.success("دیپلوی اتوماتیک آبدیت شد");
 										await refetch();
 									})
 									.catch(() => {
-										toast.error("Error updating Auto Deploy");
+										toast.error("ارور در آپدیت دیپلوی اتوماتیک");
 									});
 							}}
 							className="flex flex-row gap-2 items-center"

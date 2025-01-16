@@ -85,7 +85,7 @@ export const UpdateCompose = ({ composeId }: Props) => {
 			.catch(() => {
 				toast.error("Error updating the Compose");
 			})
-			.finally(() => {});
+			.finally(() => { });
 	};
 
 	return (
@@ -97,8 +97,8 @@ export const UpdateCompose = ({ composeId }: Props) => {
 			</DialogTrigger>
 			<DialogContent className="max-h-screen overflow-y-auto sm:max-w-lg">
 				<DialogHeader>
-					<DialogTitle>Modify Compose</DialogTitle>
-					<DialogDescription>Update the compose data</DialogDescription>
+					<DialogTitle>ویرایش Compose</DialogTitle>
+					<DialogDescription>به‌روزرسانی اطلاعات Compose</DialogDescription>
 				</DialogHeader>
 				{isError && <AlertBlock type="error">{error?.message}</AlertBlock>}
 
@@ -115,7 +115,7 @@ export const UpdateCompose = ({ composeId }: Props) => {
 									name="name"
 									render={({ field }) => (
 										<FormItem>
-											<FormLabel>Name</FormLabel>
+											<FormLabel>نام</FormLabel>
 											<FormControl>
 												<Input placeholder="Tesla" {...field} />
 											</FormControl>
@@ -129,10 +129,10 @@ export const UpdateCompose = ({ composeId }: Props) => {
 									name="description"
 									render={({ field }) => (
 										<FormItem>
-											<FormLabel>Description</FormLabel>
+											<FormLabel>توضیحات</FormLabel>
 											<FormControl>
 												<Textarea
-													placeholder="Description about your project..."
+													placeholder="توضیحات درباره پروژه شما..."
 													className="resize-none"
 													{...field}
 												/>
@@ -148,7 +148,7 @@ export const UpdateCompose = ({ composeId }: Props) => {
 										form="hook-form-update-compose"
 										type="submit"
 									>
-										Update
+										به‌روزرسانی
 									</Button>
 								</DialogFooter>
 							</form>

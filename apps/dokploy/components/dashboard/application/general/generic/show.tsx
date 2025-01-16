@@ -39,7 +39,7 @@ export const ShowProviderForm = ({ applicationId }: Props) => {
 					<div className="flex flex-col gap-2">
 						<span className="flex flex-col space-y-0.5">Provider</span>
 						<p className="flex items-center text-sm font-normal text-muted-foreground">
-							Select the source of your code
+							سورس کد خود را انتخاب کنید
 						</p>
 					</div>
 					<div className="hidden space-y-1 text-sm font-normal md:block">
@@ -61,43 +61,43 @@ export const ShowProviderForm = ({ applicationId }: Props) => {
 								value="github"
 								className="rounded-none border-b-2 gap-2 border-b-transparent data-[state=active]:border-b-2 data-[state=active]:border-b-border"
 							>
+								گیت‌هاب
 								<GithubIcon className="size-4 text-current fill-current" />
-								Github
 							</TabsTrigger>
 							<TabsTrigger
 								value="gitlab"
 								className="rounded-none border-b-2 gap-2 border-b-transparent data-[state=active]:border-b-2 data-[state=active]:border-b-border"
 							>
+								گیت‌لب
 								<GitlabIcon className="size-4 text-current fill-current" />
-								Gitlab
 							</TabsTrigger>
 							<TabsTrigger
 								value="bitbucket"
 								className="rounded-none border-b-2 gap-2 border-b-transparent data-[state=active]:border-b-2 data-[state=active]:border-b-border"
 							>
+								بیت‌باکت
 								<BitbucketIcon className="size-4 text-current fill-current" />
-								Bitbucket
 							</TabsTrigger>
 							<TabsTrigger
 								value="docker"
 								className="rounded-none border-b-2 gap-2 border-b-transparent data-[state=active]:border-b-2 data-[state=active]:border-b-border"
 							>
+								داکر
 								<DockerIcon className="size-5 text-current" />
-								Docker
 							</TabsTrigger>
 							<TabsTrigger
 								value="git"
 								className="rounded-none border-b-2 gap-2 border-b-transparent data-[state=active]:border-b-2 data-[state=active]:border-b-border"
 							>
+								گیت
 								<GitIcon />
-								Git
 							</TabsTrigger>
 							<TabsTrigger
 								value="drop"
 								className="rounded-none border-b-2 gap-2 border-b-transparent data-[state=active]:border-b-2 data-[state=active]:border-b-border"
 							>
+								دراپ
 								<UploadCloud className="size-5 text-current" />
-								Drop
 							</TabsTrigger>
 						</TabsList>
 					</div>
@@ -109,16 +109,8 @@ export const ShowProviderForm = ({ applicationId }: Props) => {
 							<div className="flex flex-col items-center gap-3 min-h-[15vh] justify-center">
 								<GithubIcon className="size-8 text-muted-foreground" />
 								<span className="text-base text-muted-foreground">
-									To deploy using GitHub, you need to configure your account
-									first. Please, go to{" "}
-									<Link
-										href="/dashboard/settings/git-providers"
-										className="text-foreground"
-									>
-										Settings
-									</Link>{" "}
-									to do so.
-								</span>
+									برای دیپلویمنت با استفاده از GitHub، ابتدا باید حساب خود را پیکربندی کنید. لطفاً به {" "}
+									<Link href="/dashboard/settings/git-providers" className="text-foreground" > تنظیمات </Link>{" "} بروید تا این کار را انجام دهید.								</span>
 							</div>
 						)}
 					</TabsContent>
@@ -129,15 +121,14 @@ export const ShowProviderForm = ({ applicationId }: Props) => {
 							<div className="flex flex-col items-center gap-3 min-h-[15vh] justify-center">
 								<GitlabIcon className="size-8 text-muted-foreground" />
 								<span className="text-base text-muted-foreground">
-									To deploy using GitLab, you need to configure your account
-									first. Please, go to{" "}
+									برای دیپلویمنت با استفاده از GitLab، ابتدا باید حساب خود را پیکربندی کنید. لطفاً به {" "}
 									<Link
 										href="/dashboard/settings/git-providers"
 										className="text-foreground"
 									>
-										Settings
+										تنظیمات
 									</Link>{" "}
-									to do so.
+									بروید تا این کار را انجام دهید.
 								</span>
 							</div>
 						)}
@@ -149,15 +140,14 @@ export const ShowProviderForm = ({ applicationId }: Props) => {
 							<div className="flex flex-col items-center gap-3 min-h-[15vh] justify-center">
 								<BitbucketIcon className="size-8 text-muted-foreground" />
 								<span className="text-base text-muted-foreground">
-									To deploy using Bitbucket, you need to configure your account
-									first. Please, go to{" "}
+									برای دیپلویمنت با استفاده از Bitbucket، ابتدا باید حساب خود را پیکربندی کنید. لطفاً به {" "}
 									<Link
 										href="/dashboard/settings/git-providers"
 										className="text-foreground"
 									>
-										Settings
+										تنظیمات
 									</Link>{" "}
-									to do so.
+									بروید تا این کار را انجام دهید.
 								</span>
 							</div>
 						)}

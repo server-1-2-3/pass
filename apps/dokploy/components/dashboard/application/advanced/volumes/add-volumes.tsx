@@ -31,14 +31,14 @@ import { z } from "zod";
 interface Props {
 	serviceId: string;
 	serviceType:
-		| "application"
-		| "postgres"
-		| "redis"
-		| "mongo"
-		| "redis"
-		| "mysql"
-		| "mariadb"
-		| "compose";
+	| "application"
+	| "postgres"
+	| "redis"
+	| "mongo"
+	| "redis"
+	| "mysql"
+	| "mariadb"
+	| "compose";
 	refetch: () => void;
 	children?: React.ReactNode;
 }
@@ -147,227 +147,222 @@ export const AddVolumes = ({
 
 	return (
 		<Dialog open={isOpen} onOpenChange={setIsOpen}>
-			<DialogTrigger className="" asChild>
-				<Button>{children}</Button>
-			</DialogTrigger>
-			<DialogContent className="max-h-screen  overflow-y-auto sm:max-w-3xl">
-				<DialogHeader>
-					<DialogTitle>Volumes / Mounts</DialogTitle>
-				</DialogHeader>
-				{/* {isError && (
-        <div className="flex items-center flex-row gap-4 rounded-lg bg-red-50 p-2 dark:bg-red-950">
-          <AlertTriangle className="text-red-600 dark:text-red-400" />
-          <span className="text-sm text-red-600 dark:text-red-400">
-            {error?.message}
-          </span>
-        </div>
-      )} */}
+    <DialogTrigger className="" asChild>
+        <Button>{children}</Button>
+    </DialogTrigger>
+    <DialogContent className="max-h-screen overflow-y-auto sm:max-w-3xl">
+        <DialogHeader>
+            <DialogTitle>حجم‌ها / مونت‌ها</DialogTitle>
+        </DialogHeader>
+        {/* {isError && (
+            <div className="flex items-center flex-row gap-4 rounded-lg bg-red-50 p-2 dark:bg-red-950">
+                <AlertTriangle className="text-red-600 dark:text-red-400" />
+                <span className="text-sm text-red-600 dark:text-red-400">
+                    {error?.message}
+                </span>
+            </div>
+        )} */}
 
-				<Form {...form}>
-					<form
-						id="hook-form-volume"
-						onSubmit={form.handleSubmit(onSubmit)}
-						className="grid w-full gap-8 "
-					>
-						<FormField
-							control={form.control}
-							defaultValue={form.control._defaultValues.type}
-							name="type"
-							render={({ field }) => (
-								<FormItem className="space-y-3">
-									<FormLabel className="text-muted-foreground">
-										Select the Mount Type
-									</FormLabel>
-									<FormControl>
-										<RadioGroup
-											onValueChange={field.onChange}
-											defaultValue={field.value}
-											className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
-										>
-											{serviceType !== "compose" && (
-												<FormItem className="flex items-center space-x-3 space-y-0">
-													<FormControl className="w-full">
-														<div>
-															<RadioGroupItem
-																value="bind"
-																id="bind"
-																className="peer sr-only"
-															/>
-															<Label
-																htmlFor="bind"
-																className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
-															>
-																Bind Mount
-															</Label>
-														</div>
-													</FormControl>
-												</FormItem>
-											)}
+        <Form {...form}>
+            <form
+                id="hook-form-volume"
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="grid w-full gap-8"
+            >
+                <FormField
+                    control={form.control}
+                    defaultValue={form.control._defaultValues.type}
+                    name="type"
+                    render={({ field }) => (
+                        <FormItem className="space-y-3">
+                            <FormLabel className="text-muted-foreground">
+                                نوع مونت را انتخاب کنید
+                            </FormLabel>
+                            <FormControl>
+                                <RadioGroup
+                                    onValueChange={field.onChange}
+                                    defaultValue={field.value}
+                                    className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+                                >
+                                    {serviceType !== "compose" && (
+                                        <FormItem className="flex items-center space-x-3 space-y-0">
+                                            <FormControl className="w-full">
+                                                <div>
+                                                    <RadioGroupItem
+                                                        value="bind"
+                                                        id="bind"
+                                                        className="peer sr-only"
+                                                    />
+                                                    <Label
+                                                        htmlFor="bind"
+                                                        className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
+                                                    >
+                                                        مونت بایند
+                                                    </Label>
+                                                </div>
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
 
-											{serviceType !== "compose" && (
-												<FormItem className="flex items-center space-x-3 space-y-0">
-													<FormControl className="w-full">
-														<div>
-															<RadioGroupItem
-																value="volume"
-																id="volume"
-																className="peer sr-only"
-															/>
-															<Label
-																htmlFor="volume"
-																className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
-															>
-																Volume Mount
-															</Label>
-														</div>
-													</FormControl>
-												</FormItem>
-											)}
+                                    {serviceType !== "compose" && (
+                                        <FormItem className="flex items-center space-x-3 space-y-0">
+                                            <FormControl className="w-full">
+                                                <div>
+                                                    <RadioGroupItem
+                                                        value="volume"
+                                                        id="volume"
+                                                        className="peer sr-only"
+                                                    />
+                                                    <Label
+                                                        htmlFor="volume"
+                                                        className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
+                                                    >
+                                                        مونت حجم
+                                                    </Label>
+                                                </div>
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
 
-											<FormItem
-												className={cn(
-													serviceType === "compose" && "col-span-3",
-													"flex items-center space-x-3 space-y-0",
-												)}
-											>
-												<FormControl className="w-full">
-													<div>
-														<RadioGroupItem
-															value="file"
-															id="file"
-															className="peer sr-only"
-														/>
-														<Label
-															htmlFor="file"
-															className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
-														>
-															File Mount
-														</Label>
-													</div>
-												</FormControl>
-											</FormItem>
-										</RadioGroup>
-									</FormControl>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-						<div className="flex flex-col gap-4">
-							<FormLabel className="text-lg font-semibold leading-none tracking-tight">
-								Fill the next fields.
-							</FormLabel>
-							<div className="flex flex-col gap-2">
-								{type === "bind" && (
-									<FormField
-										control={form.control}
-										name="hostPath"
-										render={({ field }) => (
-											<FormItem>
-												<FormLabel>Host Path</FormLabel>
-												<FormControl>
-													<Input placeholder="Host Path" {...field} />
-												</FormControl>
+                                    <FormItem
+                                        className={cn(
+                                            serviceType === "compose" && "col-span-3",
+                                            "flex items-center space-x-3 space-y-0",
+                                        )}
+                                    >
+                                        <FormControl className="w-full">
+                                            <div>
+                                                <RadioGroupItem
+                                                    value="file"
+                                                    id="file"
+                                                    className="peer sr-only"
+                                                />
+                                                <Label
+                                                    htmlFor="file"
+                                                    className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
+                                                >
+                                                    مونت فایل
+                                                </Label>
+                                            </div>
+                                        </FormControl>
+                                    </FormItem>
+                                </RadioGroup>
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <div className="flex flex-col gap-4">
+                    <FormLabel className="text-lg font-semibold leading-none tracking-tight">
+                        فیلدهای زیر را پر کنید.
+                    </FormLabel>
+                    <div className="flex flex-col gap-2">
+                        {type === "bind" && (
+                            <FormField
+                                control={form.control}
+                                name="hostPath"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>مسیر میزبان</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="مسیر میزبان" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        )}
+                        {type === "volume" && (
+                            <FormField
+                                control={form.control}
+                                name="volumeName"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>نام حجم</FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                placeholder="نام حجم"
+                                                {...field}
+                                                value={field.value || ""}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        )}
 
-												<FormMessage />
-											</FormItem>
-										)}
-									/>
-								)}
-								{type === "volume" && (
-									<FormField
-										control={form.control}
-										name="volumeName"
-										render={({ field }) => (
-											<FormItem>
-												<FormLabel>Volume Name</FormLabel>
-												<FormControl>
-													<Input
-														placeholder="Volume Name"
-														{...field}
-														value={field.value || ""}
-													/>
-												</FormControl>
-												<FormMessage />
-											</FormItem>
-										)}
-									/>
-								)}
-
-								{type === "file" && (
-									<>
-										<FormField
-											control={form.control}
-											name="content"
-											render={({ field }) => (
-												<FormItem>
-													<FormLabel>Content</FormLabel>
-													<FormControl>
-														<FormControl>
-															<CodeEditor
-																language="properties"
-																placeholder={`NODE_ENV=production
+                        {type === "file" && (
+                            <>
+                                <FormField
+                                    control={form.control}
+                                    name="content"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>محتوا</FormLabel>
+                                            <FormControl>
+                                                <CodeEditor
+                                                    style={{ direction: "ltr" }}
+                                                    language="properties"
+                                                    placeholder={`NODE_ENV=production
 PORT=3000
 `}
-																className="h-96 font-mono"
-																{...field}
-															/>
-														</FormControl>
-													</FormControl>
-													<FormMessage />
-												</FormItem>
-											)}
-										/>
-										<FormField
-											control={form.control}
-											name="filePath"
-											render={({ field }) => (
-												<FormItem>
-													<FormLabel>File Path</FormLabel>
-													<FormControl>
-														<FormControl>
-															<Input
-																placeholder="Name of the file"
-																{...field}
-															/>
-														</FormControl>
-													</FormControl>
-													<FormMessage />
-												</FormItem>
-											)}
-										/>
-									</>
-								)}
-								{serviceType !== "compose" && (
-									<FormField
-										control={form.control}
-										name="mountPath"
-										render={({ field }) => (
-											<FormItem>
-												<FormLabel>Mount Path (In the container)</FormLabel>
-												<FormControl>
-													<Input placeholder="Mount Path" {...field} />
-												</FormControl>
+                                                    className="h-96 font-mono"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="filePath"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>مسیر فایل</FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    placeholder="نام فایل"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                            </>
+                        )}
+                        {serviceType !== "compose" && (
+                            <FormField
+                                control={form.control}
+                                name="mountPath"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>مسیر مونت (درون کانتینر)</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="مسیر مونت" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        )}
+                    </div>
+                </div>
+            </form>
 
-												<FormMessage />
-											</FormItem>
-										)}
-									/>
-								)}
-							</div>
-						</div>
-					</form>
-
-					<DialogFooter>
-						<Button
-							isLoading={form.formState.isSubmitting}
-							form="hook-form-volume"
-							type="submit"
-						>
-							Create
-						</Button>
-					</DialogFooter>
-				</Form>
-			</DialogContent>
-		</Dialog>
+            <DialogFooter>
+                <Button
+                    isLoading={form.formState.isSubmitting}
+                    form="hook-form-volume"
+                    type="submit"
+                >
+                    ایجاد
+                </Button>
+            </DialogFooter>
+        </Form>
+    </DialogContent>
+</Dialog>
 	);
 };

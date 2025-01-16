@@ -35,14 +35,13 @@ export const DeleteNotification = ({ notificationId }: Props) => {
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This action cannot be undone. This will permanently delete the
-						notification
+						این عمل قابل بازگشت نیست. این کار اعلان را به طور دائمی حذف خواهد کرد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync({
@@ -50,14 +49,14 @@ export const DeleteNotification = ({ notificationId }: Props) => {
 							})
 								.then(() => {
 									utils.notification.all.invalidate();
-									toast.success("Notification deleted successfully");
+									toast.success("اعلان با موفقیت حذف شد");
 								})
 								.catch(() => {
-									toast.error("Error deleting notification");
+									toast.error("خطا در حذف اعلان");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

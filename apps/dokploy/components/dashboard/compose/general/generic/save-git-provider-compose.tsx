@@ -102,7 +102,7 @@ export const SaveGitProviderCompose = ({ composeId }: Props) => {
 								render={({ field }) => (
 									<FormItem>
 										<FormLabel className="flex flex-row justify-between">
-											Repository URL
+											آدرس مخزن
 										</FormLabel>
 										<FormControl>
 											<Input placeholder="git@bitbucket.org" {...field} />
@@ -119,7 +119,7 @@ export const SaveGitProviderCompose = ({ composeId }: Props) => {
 								render={({ field }) => (
 									<FormItem className="basis-40">
 										<FormLabel className="w-full inline-flex justify-between">
-											SSH Key
+											کلید SSH
 											<LockIcon className="size-4 text-muted-foreground" />
 										</FormLabel>
 										<FormControl>
@@ -130,7 +130,7 @@ export const SaveGitProviderCompose = ({ composeId }: Props) => {
 												value={field.value}
 											>
 												<SelectTrigger>
-													<SelectValue placeholder="Select a key" />
+													<SelectValue placeholder="انتخاب کلید" />
 												</SelectTrigger>
 												<SelectContent>
 													<SelectGroup>
@@ -142,8 +142,8 @@ export const SaveGitProviderCompose = ({ composeId }: Props) => {
 																{sshKey.name}
 															</SelectItem>
 														))}
-														<SelectItem value="none">None</SelectItem>
-														<SelectLabel>Keys ({sshKeys?.length})</SelectLabel>
+														<SelectItem value="none">هیچ‌کدام</SelectItem>
+														<SelectLabel>کلیدها ({sshKeys?.length})</SelectLabel>
 													</SelectGroup>
 												</SelectContent>
 											</Select>
@@ -157,7 +157,7 @@ export const SaveGitProviderCompose = ({ composeId }: Props) => {
 								onClick={() => router.push("/dashboard/settings/ssh-keys")}
 								type="button"
 							>
-								<KeyRoundIcon className="size-4" /> Add SSH Key
+								<KeyRoundIcon className="size-4" /> افزودن کلید SSH
 							</Button>
 						)}
 					</div>
@@ -167,9 +167,9 @@ export const SaveGitProviderCompose = ({ composeId }: Props) => {
 							name="branch"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Branch</FormLabel>
+									<FormLabel>شاخه</FormLabel>
 									<FormControl>
-										<Input placeholder="Branch" {...field} />
+										<Input placeholder="شاخه" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -182,7 +182,7 @@ export const SaveGitProviderCompose = ({ composeId }: Props) => {
 						name="composePath"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Compose Path</FormLabel>
+								<FormLabel>مسیر Compose</FormLabel>
 								<FormControl>
 									<Input placeholder="docker-compose.yml" {...field} />
 								</FormControl>
@@ -195,7 +195,7 @@ export const SaveGitProviderCompose = ({ composeId }: Props) => {
 
 				<div className="flex flex-row justify-end">
 					<Button type="submit" className="w-fit" isLoading={isLoading}>
-						Save{" "}
+						ذخیره
 					</Button>
 				</div>
 			</form>

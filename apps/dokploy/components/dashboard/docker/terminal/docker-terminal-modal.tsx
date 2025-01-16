@@ -64,9 +64,9 @@ export const DockerTerminalModal = ({
 				onEscapeKeyDown={(event) => event.preventDefault()}
 			>
 				<DialogHeader>
-					<DialogTitle>Docker Terminal</DialogTitle>
+					<DialogTitle>ترمینال Docker</DialogTitle>
 					<DialogDescription>
-						Easy way to access to docker container
+						راه آسان برای دسترسی به کانتینر Docker
 					</DialogDescription>
 				</DialogHeader>
 
@@ -79,17 +79,17 @@ export const DockerTerminalModal = ({
 					<DialogContent onEscapeKeyDown={(event) => event.preventDefault()}>
 						<DialogHeader>
 							<DialogTitle>
-								Are you sure you want to close the terminal?
+								آیا مطمئن هستید که می‌خواهید ترمینال را ببندید؟
 							</DialogTitle>
 							<DialogDescription>
-								By clicking the confirm button, the terminal will be closed.
+								با کلیک روی دکمه تأیید، ترمینال بسته خواهد شد.
 							</DialogDescription>
 						</DialogHeader>
 						<DialogFooter>
 							<Button variant="outline" onClick={handleCancel}>
-								Cancel
+								لغو
 							</Button>
-							<Button onClick={handleConfirm}>Confirm</Button>
+							<Button onClick={handleConfirm}>تأیید</Button>
 						</DialogFooter>
 					</DialogContent>
 				</Dialog>

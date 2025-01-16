@@ -26,7 +26,7 @@ export const ShowGeneralRedis = ({ redisId }: Props) => {
 			<div className="flex w-full flex-col gap-5 ">
 				<Card className="bg-background">
 					<CardHeader>
-						<CardTitle className="text-xl">Deploy Settings</CardTitle>
+						<CardTitle className="text-xl">تنظیمات دیپلوی</CardTitle>
 					</CardHeader>
 					<CardContent className="flex flex-row gap-4 flex-wrap">
 						<DeployRedis redisId={redisId} />
@@ -42,8 +42,8 @@ export const ShowGeneralRedis = ({ redisId }: Props) => {
 							serverId={data?.serverId || ""}
 						>
 							<Button variant="outline">
+								ترمینال
 								<Terminal />
-								Open Terminal
 							</Button>
 						</DockerTerminalModal>
 					</CardContent>

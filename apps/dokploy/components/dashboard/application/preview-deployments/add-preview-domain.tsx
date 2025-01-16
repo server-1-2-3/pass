@@ -103,14 +103,14 @@ export const AddPreviewDomain = ({
 	}, [form, form.reset, data, isLoading]);
 
 	const dictionary = {
-		success: domainId ? "Domain Updated" : "Domain Created",
+		success: domainId ? "دامنه به‌روزرسانی شد" : "دامنه ایجاد شد",
 		error: domainId
-			? "Error updating the domain"
-			: "Error creating the domain",
-		submit: domainId ? "Update" : "Create",
+			? "خطا در به‌روزرسانی دامنه"
+			: "خطا در ایجاد دامنه",
+		submit: domainId ? "به‌روزرسانی" : "ایجاد",
 		dialogDescription: domainId
-			? "In this section you can edit a domain"
-			: "In this section you can add domains",
+			? "در این بخش می‌توانید دامنه را ویرایش کنید"
+			: "در این بخش می‌توانید دامنه‌ها را اضافه کنید",
 	};
 
 	const onSubmit = async (data: Domain) => {
@@ -141,7 +141,7 @@ export const AddPreviewDomain = ({
 			</DialogTrigger>
 			<DialogContent className="max-h-screen overflow-y-auto sm:max-w-2xl">
 				<DialogHeader>
-					<DialogTitle>Domain</DialogTitle>
+					<DialogTitle>دامنه</DialogTitle>
 					<DialogDescription>{dictionary.dialogDescription}</DialogDescription>
 				</DialogHeader>
 				{isError && <AlertBlock type="error">{error?.message}</AlertBlock>}
@@ -159,7 +159,7 @@ export const AddPreviewDomain = ({
 									name="host"
 									render={({ field }) => (
 										<FormItem>
-											<FormLabel>Host</FormLabel>
+											<FormLabel>هاست</FormLabel>
 											<div className="flex gap-2">
 												<FormControl>
 													<Input placeholder="api.dokploy.com" {...field} />
@@ -194,7 +194,7 @@ export const AddPreviewDomain = ({
 															sideOffset={5}
 															className="max-w-[10rem]"
 														>
-															<p>Generate traefik.me domain</p>
+															<p>تولید دامنه traefik.me</p>
 														</TooltipContent>
 													</Tooltip>
 												</TooltipProvider>
@@ -211,7 +211,7 @@ export const AddPreviewDomain = ({
 									render={({ field }) => {
 										return (
 											<FormItem>
-												<FormLabel>Path</FormLabel>
+												<FormLabel>مسیر</FormLabel>
 												<FormControl>
 													<Input placeholder={"/"} {...field} />
 												</FormControl>
@@ -227,7 +227,7 @@ export const AddPreviewDomain = ({
 									render={({ field }) => {
 										return (
 											<FormItem>
-												<FormLabel>Container Port</FormLabel>
+												<FormLabel>پورت کانتینر</FormLabel>
 												<FormControl>
 													<NumberInput placeholder={"3000"} {...field} />
 												</FormControl>
@@ -245,7 +245,7 @@ export const AddPreviewDomain = ({
 											<div className="space-y-0.5">
 												<FormLabel>HTTPS</FormLabel>
 												<FormDescription>
-													Automatically provision SSL Certificate.
+													صدور خودکار گواهی SSL.
 												</FormDescription>
 												<FormMessage />
 											</div>
@@ -265,19 +265,19 @@ export const AddPreviewDomain = ({
 										name="certificateType"
 										render={({ field }) => (
 											<FormItem className="col-span-2">
-												<FormLabel>Certificate Provider</FormLabel>
+												<FormLabel>ارائه‌دهنده گواهی</FormLabel>
 												<Select
 													onValueChange={field.onChange}
 													defaultValue={field.value || ""}
 												>
 													<FormControl>
 														<SelectTrigger>
-															<SelectValue placeholder="Select a certificate provider" />
+															<SelectValue placeholder="انتخاب ارائه‌دهنده گواهی" />
 														</SelectTrigger>
 													</FormControl>
 
 													<SelectContent>
-														<SelectItem value="none">None</SelectItem>
+														<SelectItem value="none">هیچ‌کدام</SelectItem>
 														<SelectItem value={"letsencrypt"}>
 															Let's Encrypt
 														</SelectItem>

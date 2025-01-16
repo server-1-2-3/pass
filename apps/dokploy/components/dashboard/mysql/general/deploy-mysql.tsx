@@ -31,18 +31,18 @@ export const DeployMysql = ({ mysqlId }: Props) => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button isLoading={data?.applicationStatus === "running"}>
-					Deploy
+					دیپلویمنت
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This will deploy the mysql database
+						این عمل پایگاه داده MySQL را دیپلویمنت خواهد داد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await changeStatus({
@@ -50,21 +50,21 @@ export const DeployMysql = ({ mysqlId }: Props) => {
 								applicationStatus: "running",
 							})
 								.then(async () => {
-									toast.success("Deploying Database....");
+									toast.success("در حال دیپلویمنت پایگاه داده....");
 									await refetch();
 									await deploy({
 										mysqlId,
 									}).catch(() => {
-										toast.error("Error deploying Database");
+										toast.error("خطا در دیپلویمنت پایگاه داده");
 									});
 									await refetch();
 								})
 								.catch((e) => {
-									toast.error(e.message || "Error deploying Database");
+									toast.error(e.message || "خطا در دیپلویمنت پایگاه داده");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

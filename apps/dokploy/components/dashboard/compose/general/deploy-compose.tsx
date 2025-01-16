@@ -32,20 +32,20 @@ export const DeployCompose = ({ composeId }: Props) => {
 	return (
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
-				<Button isLoading={data?.composeStatus === "running"}>Deploy</Button>
+				<Button isLoading={data?.composeStatus === "running"}>دیپلویمنت</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This will deploy the compose
+						این عمل کامپوز را دیپلویمنت خواهد داد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
-							toast.success("Deploying Compose....");
+							toast.success("در حال دیپلویمنت کامپوز....");
 
 							await refetch();
 							await deploy({
@@ -57,13 +57,13 @@ export const DeployCompose = ({ composeId }: Props) => {
 									);
 								})
 								.catch(() => {
-									toast.error("Error deploying Compose");
+									toast.error("خطا در دیپلویمنت کامپوز");
 								});
 
 							await refetch();
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

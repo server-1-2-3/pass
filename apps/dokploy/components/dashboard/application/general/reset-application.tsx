@@ -33,19 +33,19 @@ export const ResetApplication = ({ applicationId, appName }: Props) => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button variant="secondary" isLoading={isLoading}>
-					Reload
+					بارگذاری مجدد
 					<RefreshCcw className="size-4" />
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This will reload the application
+						این عمل برنامه را مجدداً بارگذاری خواهد کرد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await reload({
@@ -53,15 +53,15 @@ export const ResetApplication = ({ applicationId, appName }: Props) => {
 								appName,
 							})
 								.then(() => {
-									toast.success("Service Reloaded");
+									toast.success("سرویس با موفقیت بارگذاری مجدد شد");
 								})
 								.catch(() => {
-									toast.error("Error reloading the service");
+									toast.error("خطا در بارگذاری مجدد سرویس");
 								});
 							await refetch();
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

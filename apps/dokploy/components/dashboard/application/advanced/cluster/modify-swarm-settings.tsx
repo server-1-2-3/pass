@@ -327,6 +327,7 @@ export const AddSwarmSettings = ({ applicationId }: Props) => {
 
 									<FormControl>
 										<CodeEditor
+											style={{ direction: "ltr" }}
 											language="json"
 											placeholder={`{
 	"Test" : ["CMD-SHELL", "curl -f http://localhost:3000/health"],
@@ -382,6 +383,8 @@ export const AddSwarmSettings = ({ applicationId }: Props) => {
 
 									<FormControl>
 										<CodeEditor
+											style={{ direction: "ltr" }}
+
 											language="json"
 											placeholder={`{
 	"Condition" : "on-failure",
@@ -441,6 +444,8 @@ export const AddSwarmSettings = ({ applicationId }: Props) => {
 
 									<FormControl>
 										<CodeEditor
+											style={{ direction: "ltr" }}
+
 											language="json"
 											placeholder={`{
 	"Constraints" : ["node.role==manager"],
@@ -504,6 +509,8 @@ export const AddSwarmSettings = ({ applicationId }: Props) => {
 
 									<FormControl>
 										<CodeEditor
+											style={{ direction: "ltr" }}
+
 											language="json"
 											placeholder={`{
 	"Parallelism" : 1,
@@ -562,6 +569,8 @@ export const AddSwarmSettings = ({ applicationId }: Props) => {
 
 									<FormControl>
 										<CodeEditor
+											style={{ direction: "ltr" }}
+
 											language="json"
 											placeholder={`{
 	"Parallelism" : 1,
@@ -623,6 +632,8 @@ export const AddSwarmSettings = ({ applicationId }: Props) => {
 
 									<FormControl>
 										<CodeEditor
+											style={{ direction: "ltr" }}
+
 											language="json"
 											placeholder={`{
 	"Replicated" : {
@@ -681,6 +692,8 @@ export const AddSwarmSettings = ({ applicationId }: Props) => {
 									</TooltipProvider>
 									<FormControl>
 										<CodeEditor
+											style={{ direction: "ltr" }}
+
 											language="json"
 											placeholder={`[
  {
@@ -736,6 +749,8 @@ export const AddSwarmSettings = ({ applicationId }: Props) => {
 									</TooltipProvider>
 									<FormControl>
 										<CodeEditor
+											style={{ direction: "ltr" }}
+
 											language="json"
 											placeholder={`{
 	"com.example.app.name" : "my-app",

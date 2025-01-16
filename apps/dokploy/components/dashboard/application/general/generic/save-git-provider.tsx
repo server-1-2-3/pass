@@ -102,7 +102,7 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 								name="repositoryURL"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>Repository URL</FormLabel>
+										<FormLabel>آدرس مخزن</FormLabel>
 										<FormControl>
 											<Input placeholder="git@bitbucket.org" {...field} />
 										</FormControl>
@@ -129,7 +129,7 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 												value={field.value}
 											>
 												<SelectTrigger>
-													<SelectValue placeholder="Select a key" />
+													<SelectValue placeholder="انتخاب کلید" />
 												</SelectTrigger>
 												<SelectContent>
 													<SelectGroup>
@@ -141,8 +141,8 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 																{sshKey.name}
 															</SelectItem>
 														))}
-														<SelectItem value="none">None</SelectItem>
-														<SelectLabel>Keys ({sshKeys?.length})</SelectLabel>
+														<SelectItem value="none">هیچ‌کدام</SelectItem>
+														<SelectLabel>کلیدها ({sshKeys?.length})</SelectLabel>
 													</SelectGroup>
 												</SelectContent>
 											</Select>
@@ -156,7 +156,7 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 								onClick={() => router.push("/dashboard/settings/ssh-keys")}
 								type="button"
 							>
-								<KeyRoundIcon className="size-4" /> Add SSH Key
+								<KeyRoundIcon className="size-4" /> افزودن کلید SSH
 							</Button>
 						)}
 					</div>
@@ -165,9 +165,9 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 						name="branch"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Branch</FormLabel>
+								<FormLabel>شاخه</FormLabel>
 								<FormControl>
-									<Input placeholder="Branch" {...field} />
+									<Input placeholder="شاخه" {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -178,7 +178,7 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 						name="buildPath"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Build Path</FormLabel>
+								<FormLabel>مسیر ساخت</FormLabel>
 								<FormControl>
 									<Input placeholder="/" {...field} />
 								</FormControl>
@@ -190,7 +190,7 @@ export const SaveGitProvider = ({ applicationId }: Props) => {
 
 				<div className="flex flex-row justify-end">
 					<Button type="submit" className="w-fit" isLoading={isLoading}>
-						Save
+						ذخیره
 					</Button>
 				</div>
 			</form>

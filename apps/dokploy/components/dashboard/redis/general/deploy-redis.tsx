@@ -31,18 +31,18 @@ export const DeployRedis = ({ redisId }: Props) => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button isLoading={data?.applicationStatus === "running"}>
-					Deploy
+					دیپلویمنت
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This will deploy the redis database
+						این عمل پایگاه داده Redis را دیپلویمنت خواهد داد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await changeStatus({
@@ -50,21 +50,21 @@ export const DeployRedis = ({ redisId }: Props) => {
 								applicationStatus: "running",
 							})
 								.then(async () => {
-									toast.success("Deploying Database...");
+									toast.success("در حال دیپلویمنت پایگاه داده...");
 									await refetch();
 									await deploy({
 										redisId,
 									}).catch(() => {
-										toast.error("Error deploying Database");
+										toast.error("خطا در دیپلویمنت پایگاه داده");
 									});
 									await refetch();
 								})
 								.catch((e) => {
-									toast.error(e.message || "Error deploying Database");
+									toast.error(e.message || "خطا در دیپلویمنت پایگاه داده");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

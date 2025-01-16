@@ -105,21 +105,21 @@ export const AddTemplate = ({ projectId }: Props) => {
 					onSelect={(e) => e.preventDefault()}
 				>
 					<PuzzleIcon className="size-4 text-muted-foreground" />
-					<span>Template</span>
+					<span>قالب</span>
 				</DropdownMenuItem>
 			</DialogTrigger>
-			<DialogContent className="max-h-screen  overflow-y-auto sm:max-w-7xl p-0">
+			<DialogContent className="max-h-screen overflow-y-auto sm:max-w-7xl p-0">
 				<div className="sticky top-0 z-10 flex flex-col gap-4 bg-background p-6 border-b">
 					<DialogHeader>
-						<DialogTitle>Create from Template</DialogTitle>
+						<DialogTitle>ایجاد از قالب</DialogTitle>
 						<DialogDescription>
-							Create an open source application from a template
+							یک برنامه متن‌باز از یک قالب ایجاد کنید
 						</DialogDescription>
 					</DialogHeader>
 					{isError && <AlertBlock type="error">{error?.message}</AlertBlock>}
 					<div className="flex flex-col md:flex-row gap-2">
 						<Input
-							placeholder="Search Template"
+							placeholder="جستجوی قالب"
 							onChange={(e) => setQuery(e.target.value)}
 							className="w-full"
 							value={query}
@@ -128,28 +128,26 @@ export const AddTemplate = ({ projectId }: Props) => {
 							<PopoverTrigger asChild>
 								<Button
 									variant="outline"
-									className={cn(
-										"md:max-w-[15rem] w-full justify-between !bg-input",
-									)}
+									className={cn("md:max-w-[15rem] w-full justify-between !bg-input")}
 								>
 									{isLoadingTags
-										? "Loading...."
+										? "در حال بارگذاری...."
 										: selectedTags.length > 0
-											? `Selected ${selectedTags.length} tags`
-											: "Select tag"}
+											? `${selectedTags.length} تگ انتخاب شده`
+											: "انتخاب تگ"}
 
-									<ChevronsUpDown className="ml-2 h-4 w-4  opacity-50" />
+									<ChevronsUpDown className="ml-2 h-4 w-4 opacity-50" />
 								</Button>
 							</PopoverTrigger>
 							<PopoverContent className="p-0" align="start">
 								<Command>
-									<CommandInput placeholder="Search tag..." className="h-9" />
+									<CommandInput placeholder="جستجوی تگ..." className="h-9" />
 									{isLoadingTags && (
 										<span className="py-6 text-center text-sm">
-											Loading Tags....
+											در حال بارگذاری تگ‌ها....
 										</span>
 									)}
-									<CommandEmpty>No tags found.</CommandEmpty>
+									<CommandEmpty>هیچ تگی یافت نشد.</CommandEmpty>
 									<ScrollArea className="h-96 overflow-y-auto">
 										<CommandGroup>
 											{tags?.map((tag) => {
@@ -159,9 +157,7 @@ export const AddTemplate = ({ projectId }: Props) => {
 														key={tag}
 														onSelect={() => {
 															if (selectedTags.includes(tag)) {
-																setSelectedTags(
-																	selectedTags.filter((t) => t !== tag),
-																);
+																setSelectedTags(selectedTags.filter((t) => t !== tag));
 																return;
 															}
 															setSelectedTags([...selectedTags, tag]);
@@ -171,9 +167,7 @@ export const AddTemplate = ({ projectId }: Props) => {
 														<CheckIcon
 															className={cn(
 																"ml-auto h-4 w-4",
-																selectedTags.includes(tag)
-																	? "opacity-100"
-																	: "opacity-0",
+																selectedTags.includes(tag) ? "opacity-100" : "opacity-0"
 															)}
 														/>
 													</CommandItem>
@@ -191,7 +185,7 @@ export const AddTemplate = ({ projectId }: Props) => {
 						<div className="flex justify-center items-center w-full gap-2 min-h-[50vh]">
 							<SearchIcon className="text-muted-foreground size-6" />
 							<div className="text-xl font-medium text-muted-foreground">
-								No templates found
+								هیچ قالبی یافت نشد
 							</div>
 						</div>
 					) : (
@@ -215,9 +209,7 @@ export const AddTemplate = ({ projectId }: Props) => {
 												<div className="flex flex-col gap-2 justify-center items-center">
 													<div className="flex flex-col gap-2 items-center justify-center">
 														<div className="flex flex-row gap-2 flex-wrap">
-															<span className="text-sm font-medium">
-																{template.name}
-															</span>
+															<span className="text-sm font-medium">{template.name}</span>
 															<Badge>{template.version}</Badge>
 														</div>
 
@@ -275,18 +267,14 @@ export const AddTemplate = ({ projectId }: Props) => {
 													<AlertDialog>
 														<AlertDialogTrigger asChild>
 															<Button onSelect={(e) => e.preventDefault()}>
-																Create
+																ایجاد
 															</Button>
 														</AlertDialogTrigger>
 														<AlertDialogContent>
 															<AlertDialogHeader>
-																<AlertDialogTitle>
-																	Are you absolutely sure?
-																</AlertDialogTitle>
+																<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 																<AlertDialogDescription>
-																	This will create an application from the{" "}
-																	{template.name} template and add it to your
-																	project.
+																	این کار یک برنامه از قالب {template.name} ایجاد کرده و به پروژه شما اضافه می‌کند.
 																</AlertDialogDescription>
 
 																<div>
@@ -294,7 +282,7 @@ export const AddTemplate = ({ projectId }: Props) => {
 																		<Tooltip>
 																			<TooltipTrigger asChild>
 																				<Label className="break-all w-fit flex flex-row gap-1 items-center pb-2 pt-3.5">
-																					Select a Server (Optional)
+																					انتخاب سرور (اختیاری)
 																					<HelpCircle className="size-4 text-muted-foreground" />
 																				</Label>
 																			</TooltipTrigger>
@@ -304,9 +292,7 @@ export const AddTemplate = ({ projectId }: Props) => {
 																				side="top"
 																			>
 																				<span>
-																					If ot server is selected, the
-																					application will be deployed on the
-																					server where the user is logged in.
+																					اگر سروری انتخاب نشود، برنامه روی سروری که کاربر در آن وارد شده است، دیپلویمنت می‌یابد.
 																				</span>
 																			</TooltipContent>
 																		</Tooltip>
@@ -318,7 +304,7 @@ export const AddTemplate = ({ projectId }: Props) => {
 																		}}
 																	>
 																		<SelectTrigger>
-																			<SelectValue placeholder="Select a Server" />
+																			<SelectValue placeholder="انتخاب سرور" />
 																		</SelectTrigger>
 																		<SelectContent>
 																			<SelectGroup>
@@ -331,7 +317,7 @@ export const AddTemplate = ({ projectId }: Props) => {
 																					</SelectItem>
 																				))}
 																				<SelectLabel>
-																					Servers ({servers?.length})
+																					سرورها ({servers?.length})
 																				</SelectLabel>
 																			</SelectGroup>
 																		</SelectContent>
@@ -339,7 +325,7 @@ export const AddTemplate = ({ projectId }: Props) => {
 																</div>
 															</AlertDialogHeader>
 															<AlertDialogFooter>
-																<AlertDialogCancel>Cancel</AlertDialogCancel>
+																<AlertDialogCancel>لغو</AlertDialogCancel>
 																<AlertDialogAction
 																	disabled={isLoading}
 																	onClick={async () => {
@@ -349,21 +335,21 @@ export const AddTemplate = ({ projectId }: Props) => {
 																			id: template.id,
 																		});
 																		toast.promise(promise, {
-																			loading: "Setting up...",
+																			loading: "در حال تنظیم...",
 																			success: (data) => {
 																				utils.project.one.invalidate({
 																					projectId,
 																				});
 																				setOpen(false);
-																				return `${template.name} template created successfully`;
+																				return `قالب ${template.name} با موفقیت ایجاد شد`;
 																			},
 																			error: (err) => {
-																				return `An error ocurred deploying ${template.name} template`;
+																				return `خطایی در دیپلویمنت قالب ${template.name} رخ داد`;
 																			},
 																		});
 																	}}
 																>
-																	Confirm
+																	تأیید
 																</AlertDialogAction>
 															</AlertDialogFooter>
 														</AlertDialogContent>

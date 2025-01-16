@@ -75,13 +75,13 @@ export const ShowRedisEnvironment = ({ redisId }: Props) => {
 	};
 
 	return (
-		<div className="flex w-full flex-col gap-5 ">
+		<div className="flex w-full flex-col gap-5">
 			<Card className="bg-background">
 				<CardHeader className="flex flex-row w-full items-center justify-between">
 					<div>
-						<CardTitle className="text-xl">Environment Settings</CardTitle>
+						<CardTitle className="text-xl">تنظیمات محیطی</CardTitle>
 						<CardDescription>
-							You can add environment variables to your resource.
+							می‌توانید متغیرهای محیطی را به منبع خود اضافه کنید.
 						</CardDescription>
 					</div>
 
@@ -111,6 +111,8 @@ export const ShowRedisEnvironment = ({ redisId }: Props) => {
 									<FormItem className="w-full">
 										<FormControl>
 											<CodeEditor
+												style={{ direction: "ltr" }}
+
 												language="properties"
 												disabled={isEnvVisible}
 												placeholder={`NODE_ENV=production
@@ -128,7 +130,7 @@ PORT=3000
 
 							<div className="flex flex-row justify-end">
 								<Button isLoading={isLoading} className="w-fit" type="submit">
-									Save
+									ذخیره
 								</Button>
 							</div>
 						</form>

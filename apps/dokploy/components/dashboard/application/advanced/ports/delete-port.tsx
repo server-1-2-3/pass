@@ -25,18 +25,18 @@ export const DeletePort = ({ portId }: Props) => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button variant="ghost" isLoading={isLoading}>
-					<TrashIcon className="size-4  text-muted-foreground " />
+					<TrashIcon className="size-4 text-muted-foreground" />
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This action cannot be undone. This will permanently delete the port
+						این عمل قابل بازگشت نیست. این کار پورت را به طور دائمی حذف خواهد کرد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync({
@@ -47,14 +47,14 @@ export const DeletePort = ({ portId }: Props) => {
 										applicationId: data?.applicationId,
 									});
 
-									toast.success("Port delete successfully");
+									toast.success("پورت با موفقیت حذف شد");
 								})
 								.catch(() => {
-									toast.error("Error deleting the port");
+									toast.error("خطا در حذف پورت");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

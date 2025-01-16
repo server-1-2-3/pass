@@ -97,8 +97,10 @@ export const ComposeFileEditor = ({ composeId }: Props) => {
 									<FormControl className="">
 										<div className="flex flex-col gap-4 w-full outline-none focus:outline-none overflow-auto">
 											<CodeEditor
+											
 												// disabled
 												value={field.value}
+												style={{ direction: "ltr" }}
 												className="font-mono"
 												wrapperClassName="compose-file-editor"
 												placeholder={`version: '3'

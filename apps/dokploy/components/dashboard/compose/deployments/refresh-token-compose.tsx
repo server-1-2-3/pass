@@ -27,14 +27,13 @@ export const RefreshTokenCompose = ({ composeId }: Props) => {
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This action cannot be undone. This will permanently change the token
-						and all the previous tokens will be invalidated
+						این عمل قابل بازگشت نیست. این کار توکن را به طور دائمی تغییر می‌دهد و تمام توکن‌های قبلی نامعتبر خواهند شد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync({
@@ -44,14 +43,14 @@ export const RefreshTokenCompose = ({ composeId }: Props) => {
 									utils.compose.one.invalidate({
 										composeId,
 									});
-									toast.success("Refresh Token updated");
+									toast.success("توکن رفرش با موفقیت به‌روزرسانی شد");
 								})
 								.catch(() => {
-									toast.error("Error updating the refresh token");
+									toast.error("خطا در به‌روزرسانی توکن رفرش");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

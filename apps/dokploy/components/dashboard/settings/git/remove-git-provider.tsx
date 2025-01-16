@@ -45,8 +45,7 @@ export const RemoveGitProvider = ({
 									<InfoIcon className="size-4 fill-muted-destructive text-muted-destructive" />
 								</TooltipTrigger>
 								<TooltipContent>
-									We recommend deleting the GitHub app first, and then removing
-									the current one from here.
+									توصیه می‌کنیم ابتدا برنامه GitHub را حذف کنید، سپس از اینجا آن را حذف کنید.
 								</TooltipContent>
 							</Tooltip>
 						</TooltipProvider>
@@ -55,14 +54,13 @@ export const RemoveGitProvider = ({
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This action cannot be undone. This will permanently delete the
-						associated github application
+						این عمل قابل بازگشت نیست. این کار برنامه مرتبط با GitHub را به طور دائمی حذف خواهد کرد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync({
@@ -70,14 +68,14 @@ export const RemoveGitProvider = ({
 							})
 								.then(async () => {
 									utils.gitProvider.getAll.invalidate();
-									toast.success("Git Provider deleted successfully.");
+									toast.success("ارائه‌دهنده Git با موفقیت حذف شد.");
 								})
 								.catch(() => {
-									toast.error("Error deleting Git provider.");
+									toast.error("خطا در حذف ارائه‌دهنده Git.");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

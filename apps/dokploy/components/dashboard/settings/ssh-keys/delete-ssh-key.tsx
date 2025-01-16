@@ -25,19 +25,18 @@ export const DeleteSSHKey = ({ sshKeyId }: Props) => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button variant="ghost" isLoading={isLoading}>
-					<TrashIcon className="size-4  text-muted-foreground" />
+					<TrashIcon className="size-4 text-muted-foreground" />
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This action cannot be undone. This will permanently delete the SSH
-						key
+						این عمل قابل بازگشت نیست. این کار کلید SSH را به طور دائمی حذف خواهد کرد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync({
@@ -45,14 +44,14 @@ export const DeleteSSHKey = ({ sshKeyId }: Props) => {
 							})
 								.then(() => {
 									utils.sshKey.all.invalidate();
-									toast.success("SSH Key delete successfully");
+									toast.success("کلید SSH با موفقیت حذف شد");
 								})
 								.catch(() => {
-									toast.error("Error deleting SSH key");
+									toast.error("خطا در حذف کلید SSH");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

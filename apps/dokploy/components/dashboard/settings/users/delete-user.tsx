@@ -29,18 +29,18 @@ export const DeleteUser = ({ authId }: Props) => {
 					className="w-full cursor-pointer text-red-500 hover:!text-red-600"
 					onSelect={(e) => e.preventDefault()}
 				>
-					Delete User
+					حذف کاربر
 				</DropdownMenuItem>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This action cannot be undone. This will permanently delete the user.
+						این عمل قابل بازگشت نیست. این کار کاربر را به طور دائمی حذف خواهد کرد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync({
@@ -48,14 +48,14 @@ export const DeleteUser = ({ authId }: Props) => {
 							})
 								.then(async () => {
 									utils.user.all.invalidate();
-									toast.success("User deleted successfully");
+									toast.success("کاربر با موفقیت حذف شد");
 								})
 								.catch(() => {
-									toast.error("Error deleting User");
+									toast.error("خطا در حذف کاربر");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

@@ -24,35 +24,35 @@ export const CancelQueuesCompose = ({ composeId }: Props) => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button variant="destructive" className="w-fit" isLoading={isLoading}>
-					Cancel Queues
+					لغو صف‌ها
 					<Paintbrush className="size-4" />
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
 					<AlertDialogTitle>
-						Are you sure to cancel the incoming deployments?
+						آیا مطمئن هستید که می‌خواهید دیپلویمنت در حال ورود را لغو کنید؟
 					</AlertDialogTitle>
 					<AlertDialogDescription>
-						This will cancel all the incoming deployments
+						این عمل تمام دیپلویمنت‌های در حال ورود را لغو خواهد کرد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync({
 								composeId,
 							})
 								.then(() => {
-									toast.success("Queues are being cleaned");
+									toast.success("صف‌ها در حال پاک‌سازی هستند");
 								})
 								.catch((err) => {
 									toast.error(err.message);
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

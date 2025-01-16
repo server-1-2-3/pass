@@ -21,32 +21,31 @@ export const RemoveSSHPrivateKey = () => {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button variant="destructive" isLoading={isLoading}>
-					Remove Current SSH Private Key
+					حذف کلید خصوصی SSH فعلی
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+					<AlertDialogTitle>آیا مطمئن هستید؟</AlertDialogTitle>
 					<AlertDialogDescription>
-						This action cannot be undone. This will permanently delete the ssh
-						private key.
+						این عمل قابل بازگشت نیست. این کار کلید خصوصی SSH را به طور دائمی حذف خواهد کرد.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
 							await mutateAsync()
 								.then(() => {
-									toast.success("SSH private key deleted successfully");
+									toast.success("کلید خصوصی SSH با موفقیت حذف شد");
 									utils.auth.get.invalidate();
 								})
 								.catch(() => {
-									toast.error("Error deleting the SSH private key");
+									toast.error("خطا در حذف کلید خصوصی SSH");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

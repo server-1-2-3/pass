@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Switch } from "@/components/ui/switch";
 import { api } from "@/utils/api";
-import { CheckCircle2, ExternalLink, Globe, Terminal } from "lucide-react";
+import { ExternalLink, Globe, Terminal } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
 import { DockerTerminalModal } from "../../settings/web-server/docker-terminal-modal";
@@ -64,12 +64,12 @@ export const ComposeActions = ({ composeId }: Props) => {
 				serverId={data?.serverId || ""}
 			>
 				<Button variant="outline">
+					باز کردن ترمینال
 					<Terminal />
-					Open Terminal
 				</Button>
 			</DockerTerminalModal>
 			<div className="flex flex-row items-center gap-2 rounded-md px-4 py-2 border">
-				<span className="text-sm font-medium">Autodeploy</span>
+				<span className="text-sm font-medium">دیپلوی اتوماتیک</span>
 				<Switch
 					aria-label="Toggle italic"
 					checked={data?.autoDeploy || false}
@@ -79,11 +79,11 @@ export const ComposeActions = ({ composeId }: Props) => {
 							autoDeploy: enabled,
 						})
 							.then(async () => {
-								toast.success("Auto Deploy Updated");
+								toast.success("دیپلوی اتوماتیک آبدیت شد");
 								await refetch();
 							})
 							.catch(() => {
-								toast.error("Error updating Auto Deploy");
+								toast.error("ارور در آپدیت دیپلوی اتوماتیک");
 							});
 					}}
 					className="flex flex-row gap-2 items-center"
@@ -93,12 +93,12 @@ export const ComposeActions = ({ composeId }: Props) => {
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
 						<Button variant="outline">
-							Domains
+							دامین‌ها
 							<Globe className="text-xs size-4 text-muted-foreground" />
 						</Button>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent className="w-56">
-						<DropdownMenuLabel>Domains detected</DropdownMenuLabel>
+						<DropdownMenuLabel>دومین های شناسایی شده</DropdownMenuLabel>
 						<DropdownMenuSeparator />
 						<DropdownMenuGroup>
 							{domains.map((host, index) => {

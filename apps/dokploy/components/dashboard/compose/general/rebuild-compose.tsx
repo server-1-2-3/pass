@@ -34,25 +34,24 @@ export const RedbuildCompose = ({ composeId }: Props) => {
 					variant="secondary"
 					isLoading={data?.composeStatus === "running"}
 				>
-					Rebuild
+					بازسازی
 					<Hammer className="size-4" />
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
 					<AlertDialogTitle>
-						Are you sure to rebuild the compose?
+						آیا از بازسازی کامپوز مطمئن هستید؟
 					</AlertDialogTitle>
 					<AlertDialogDescription>
-						Is required to deploy at least 1 time in order to reuse the same
-						code
+						برای استفاده مجدد از همان کد، حداقل یک بار باید دیپلویمنت انجام شود.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
-					<AlertDialogCancel>Cancel</AlertDialogCancel>
+					<AlertDialogCancel>لغو</AlertDialogCancel>
 					<AlertDialogAction
 						onClick={async () => {
-							toast.success("Redeploying Compose....");
+							toast.success("در حال دیپلویمنت مجدد کامپوز....");
 							await mutateAsync({
 								composeId,
 							})
@@ -62,11 +61,11 @@ export const RedbuildCompose = ({ composeId }: Props) => {
 									});
 								})
 								.catch(() => {
-									toast.error("Error rebuilding the compose");
+									toast.error("خطا در بازسازی کامپوز");
 								});
 						}}
 					>
-						Confirm
+						تأیید
 					</AlertDialogAction>
 				</AlertDialogFooter>
 			</AlertDialogContent>

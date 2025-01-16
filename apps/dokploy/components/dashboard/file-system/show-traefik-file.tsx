@@ -118,6 +118,8 @@ export const ShowTraefikFile = ({ path, serverId }: Props) => {
 										</FormDescription>
 										<FormControl>
 											<CodeEditor
+												style={{ direction: "ltr" }}
+
 												lineWrapping
 												wrapperClassName="h-[35rem] font-mono"
 												placeholder={`http:

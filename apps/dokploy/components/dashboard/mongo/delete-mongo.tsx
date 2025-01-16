@@ -80,11 +80,9 @@ export const DeleteMongo = ({ mongoId }: Props) => {
 			</DialogTrigger>
 			<DialogContent className="max-h-screen overflow-y-auto sm:max-w-lg">
 				<DialogHeader>
-					<DialogTitle>Are you absolutely sure?</DialogTitle>
+					<DialogTitle>آیا مطمئن هستید؟</DialogTitle>
 					<DialogDescription>
-						This action cannot be undone. This will permanently delete the
-						database. If you are sure please enter the database name to delete
-						this database.
+						این عمل قابل بازگشت نیست. این کار پایگاه داده را به طور دائمی حذف خواهد کرد. اگر مطمئن هستید، لطفاً نام پایگاه داده را وارد کنید تا این پایگاه داده حذف شود.
 					</DialogDescription>
 				</DialogHeader>
 				<div className="grid gap-4">
@@ -101,7 +99,7 @@ export const DeleteMongo = ({ mongoId }: Props) => {
 									<FormItem>
 										<FormLabel className="flex items-center gap-2">
 											<span>
-												To confirm, type{" "}
+												برای تأیید، عبارت{" "}
 												<Badge
 													className="p-2 rounded-md ml-1 mr-1 hover:border-primary hover:text-primary-foreground hover:bg-primary hover:cursor-pointer"
 													variant="outline"
@@ -110,19 +108,19 @@ export const DeleteMongo = ({ mongoId }: Props) => {
 															navigator.clipboard.writeText(
 																`${data.name}/${data.appName}`,
 															);
-															toast.success("Copied to clipboard. Be careful!");
+															toast.success("در کلیپ‌بورد کپی شد. مراقب باشید!");
 														}
 													}}
 												>
 													{data?.name}/{data?.appName}&nbsp;
 													<Copy className="h-4 w-4 ml-1 text-muted-foreground" />
 												</Badge>{" "}
-												in the box below:
+												را در کادر زیر وارد کنید:
 											</span>
 										</FormLabel>
 										<FormControl>
 											<Input
-												placeholder="Enter database name to confirm"
+												placeholder="نام پایگاه داده را برای تأیید وارد کنید"
 												{...field}
 											/>
 										</FormControl>
@@ -140,7 +138,7 @@ export const DeleteMongo = ({ mongoId }: Props) => {
 							setIsOpen(false);
 						}}
 					>
-						Cancel
+						لغو
 					</Button>
 					<Button
 						isLoading={isLoading}
@@ -148,7 +146,7 @@ export const DeleteMongo = ({ mongoId }: Props) => {
 						type="submit"
 						variant="destructive"
 					>
-						Confirm
+						تأیید
 					</Button>
 				</DialogFooter>
 			</DialogContent>

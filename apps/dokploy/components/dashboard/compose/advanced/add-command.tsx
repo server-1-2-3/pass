@@ -75,14 +75,14 @@ export const AddCommandCompose = ({ composeId }: Props) => {
 			command: data?.command,
 		})
 			.then(async () => {
-				toast.success("Command Updated");
+				toast.success("دستور با موفقیت به‌روزرسانی شد");
 				refetch();
 				await utils.compose.one.invalidate({
 					composeId,
 				});
 			})
 			.catch(() => {
-				toast.error("Error updating the command");
+				toast.error("خطا در به‌روزرسانی دستور");
 			});
 	};
 
@@ -90,9 +90,9 @@ export const AddCommandCompose = ({ composeId }: Props) => {
 		<Card className="bg-background">
 			<CardHeader className="flex flex-row justify-between">
 				<div>
-					<CardTitle className="text-xl">Run Command</CardTitle>
+					<CardTitle className="text-xl">اجرای دستور</CardTitle>
 					<CardDescription>
-						Override a custom command to the compose file
+						دستور سفارشی را به فایل کامپوز اضافه کنید
 					</CardDescription>
 				</div>
 			</CardHeader>
@@ -103,10 +103,7 @@ export const AddCommandCompose = ({ composeId }: Props) => {
 						className="grid w-full gap-4"
 					>
 						<AlertBlock type="warning">
-							Modifying the default command may affect deployment stability,
-							impacting logs and monitoring. Proceed carefully and test
-							thoroughly. By default, the command starts with{" "}
-							<strong>docker</strong>.
+							تغییر دستور پیش‌فرض ممکن است بر ثبات دیپلویمنت تأثیر بگذارد و بر لاگ‌ها و مانیتورینگ تأثیر بگذارد. با احتیاط پیش بروید و به‌طور کامل تست کنید. به‌طور پیش‌فرض، دستور با <strong>docker</strong> شروع می‌شود.
 						</AlertBlock>
 						<div className="flex flex-col gap-4">
 							<FormField
@@ -114,13 +111,13 @@ export const AddCommandCompose = ({ composeId }: Props) => {
 								name="command"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>Command</FormLabel>
+										<FormLabel>دستور</FormLabel>
 										<FormControl>
-											<Input placeholder="Custom command" {...field} />
+											<Input placeholder="دستور سفارشی" {...field} />
 										</FormControl>
 
 										<FormDescription>
-											Default Command ({defaultCommand})
+											دستور پیش‌فرض ({defaultCommand})
 										</FormDescription>
 										<FormMessage />
 									</FormItem>
@@ -129,7 +126,7 @@ export const AddCommandCompose = ({ composeId }: Props) => {
 						</div>
 						<div className="flex justify-end">
 							<Button isLoading={isLoading} type="submit" className="w-fit">
-								Save
+								ذخیره
 							</Button>
 						</div>
 					</form>

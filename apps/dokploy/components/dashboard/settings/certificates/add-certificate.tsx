@@ -120,7 +120,7 @@ export const AddCertificate = () => {
 									<FormItem>
 										<FormLabel>اسم</FormLabel>
 										<FormControl>
-											<Input placeholder={"My Certificate"} {...field} />
+											<Input dir="ltr" placeholder={"My Certificate"} {...field} />
 										</FormControl>
 										<FormMessage />
 									</FormItem>
@@ -137,6 +137,7 @@ export const AddCertificate = () => {
 									</div>
 									<FormControl>
 										<Textarea
+											dir="ltr"
 											className="h-32"
 											placeholder={certificateDataHolder}
 											{...field}
@@ -156,6 +157,7 @@ export const AddCertificate = () => {
 									</div>
 									<FormControl>
 										<Textarea
+											dir="ltr"
 											className="h-32"
 											placeholder={privateKeyDataHolder}
 											{...field}

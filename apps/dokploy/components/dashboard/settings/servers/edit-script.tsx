@@ -127,6 +127,8 @@ export const EditScript = ({ serverId }: Props) => {
 										<FormLabel>Command</FormLabel>
 										<FormControl className="max-h-[75vh] max-w-[60rem] overflow-y-scroll overflow-x-hidden">
 											<CodeEditor
+												style={{ direction: "ltr" }}
+
 												language="shell"
 												wrapperClassName="font-mono"
 												{...field}

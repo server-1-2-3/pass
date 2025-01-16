@@ -27,14 +27,14 @@ export const ShowGeneralCompose = ({ composeId }: Props) => {
 			<Card className="bg-background">
 				<CardHeader>
 					<div className="flex flex-row gap-2 justify-between flex-wrap">
-						<CardTitle className="text-xl">Deploy Settings</CardTitle>
+						<CardTitle className="text-xl">تنظیمات دیپلوی</CardTitle>
 						<Badge>
 							{data?.composeType === "docker-compose" ? "Compose" : "Stack"}
 						</Badge>
 					</div>
 
 					<CardDescription>
-						Create a compose file to deploy your compose
+						یک داکر کامپوز یا استک برای اجرای اپلیکیشن‌ها بسازید.
 					</CardDescription>
 				</CardHeader>
 				<CardContent className="flex flex-col gap-4 flex-wrap">
