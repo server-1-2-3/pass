@@ -1,8 +1,22 @@
-version: '3.8'
+version: "3.8"
 
 services:
+  pass:
+    image: pass:latest
+    ports:
+      - 80:3000
+    networks:
+      - app-network
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      DATABASE_URL: postgres://dokploy:amukds4wi9001583845717ad2@postgres:5432/dokploy
+      REDIS_URL: redis://redis:6379
+      IS_CLOUD: true
+      
   postgres:
-    image: bitnami/postgresql:13
+    image: docker.arvancloud.ir/bitnami/postgresql:13
     container_name: postgres
     environment:
       POSTGRESQL_USERNAME: dokploy
@@ -14,7 +28,7 @@ services:
       - app-network
 
   redis:
-    image: redis:6
+    image: docker.arvancloud.ir/redis:6
     container_name: redis
     ports:
       - "6379:6379"
