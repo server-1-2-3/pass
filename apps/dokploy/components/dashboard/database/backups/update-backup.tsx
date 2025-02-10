@@ -216,7 +216,7 @@ export const UpdateBackup = ({ backupId, refetch }: Props) => {
 										<FormItem>
 											<FormLabel>Database</FormLabel>
 											<FormControl>
-												<Input placeholder={"dokploy"} {...field} />
+												<Input placeholder={"pass-123"} {...field} />
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -246,7 +246,7 @@ export const UpdateBackup = ({ backupId, refetch }: Props) => {
 										<FormItem>
 											<FormLabel>Prefix Destination</FormLabel>
 											<FormControl>
-												<Input placeholder={"dokploy/"} {...field} />
+												<Input placeholder={"pass-123/"} {...field} />
 											</FormControl>
 											<FormDescription>
 												Use if you want to storage in a specific path of your

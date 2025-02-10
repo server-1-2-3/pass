@@ -295,7 +295,7 @@ export const AddDomainCompose = ({
 											<FormLabel>هاست</FormLabel>
 											<div className="flex gap-2">
 												<FormControl>
-													<Input dir="ltr" placeholder="api.dokploy.com" {...field} />
+													<Input dir="ltr" placeholder="pass.pass123.ir" {...field} />
 												</FormControl>
 												<TooltipProvider delayDuration={0}>
 													<Tooltip>

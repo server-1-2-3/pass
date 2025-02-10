@@ -219,7 +219,7 @@ export const DockerMonitoring = ({
 									memoryLimitGB={currentData.memory.value.total / 1024 ** 3}
 								/>
 							</div>
-							{appName === "dokploy" && (
+							{appName === "pass-123" && (
 								<div className="flex flex-col gap-2  w-full ">
 									<span className="text-base font-medium">فضای ذخیره سازی</span>
 									<span className="text-sm text-muted-foreground">

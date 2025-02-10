@@ -163,15 +163,7 @@ export const ShowBilling = () => {
 											featured ? "text-white" : "text-slate-200",
 										)}
 									>
-										{[
-											"All the features of Dokploy",
-											"Unlimited deployments",
-											"Self-hosted on your own infrastructure",
-											"Full access to all deployment features",
-											"Dokploy integration",
-											"Backups",
-											"All Incoming features",
-										].map((feature) => (
+										{[].map((feature) => (
 											<li key={feature} className="flex text-muted-foreground">
 												<CheckIcon />
 												<span className="ml-4">{feature}</span>

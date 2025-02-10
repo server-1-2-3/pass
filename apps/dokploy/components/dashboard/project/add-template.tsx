@@ -245,15 +245,6 @@ export const AddTemplate = ({ projectId }: Props) => {
 																	<BookText className="size-4 text-muted-foreground" />
 																</Link>
 															)}
-															<Link
-																href={`https://github.com/Dokploy/dokploy/tree/canary/apps/dokploy/templates/${template.id}`}
-																target="_blank"
-																className={
-																	"text-sm text-muted-foreground p-3 rounded-full hover:bg-border items-center flex transition-colors"
-																}
-															>
-																<Code className="size-4 text-muted-foreground" />
-															</Link>
 														</div>
 														<div className="flex flex-row gap-2 flex-wrap justify-center">
 															{template.tags.map((tag) => (
